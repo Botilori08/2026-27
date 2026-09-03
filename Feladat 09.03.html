@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .hibasInput
+    {
+        background-color: red;
+        color: white;
+    }
+
+</style>
+<body>
+
+    <label>Adj meg 5 számot!</label>
+    <input type="number">
+    <input type="number">
+    <input type="text">
+    <input type="text">
+    <input type="number">
+
+    <button onclick="sorbaRendez()">Végrehajt</button>
+
+    <div id="megjelenit"></div>
+
+
+    <script>
+
+        function sorbaRendez()
+        {
+
+            let inputok = document.querySelectorAll("input");
+
+            console.log(inputok);
+
+            let szamok = [];
+
+            inputok.forEach(e => {
+                if(parseInt(e.value))
+                {
+                    szamok.push(e.value)
+                }
+                else
+                {
+                    console.log("NEMJÓÓÓ");
+                    e.classList.add("hibasInput");
+                }
+            });
+
+            console.log(szamok)
+            
+            /*try
+            {
+                parseInt(document.querySelector("input").value)
+            }
+            catch
+            {
+
+            }*/
+
+    
+    
+
+
+        }
+
+    </script>
+</body>
+</html>
