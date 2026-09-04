@@ -32,6 +32,7 @@
     $tomb[1] = 120;
     $tomb[100] = 100;
     $tomb[] = "12";
+    $tomb["szoveg"] = "almafa";
 
 
     //asszociatív tömb
@@ -66,6 +67,14 @@
         $i++;
         echo "$i <br>";
     };
+
+    foreach($tomb as $value)
+    {
+        if(gettype($value) != "array")
+        {
+            echo "$value <br>";
+        }
+    }
 
 
     /*
