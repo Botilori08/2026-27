@@ -20,28 +20,55 @@
                     <h1 class="text-center">Űrlap</h1>
                 </div>
 
-                <form action="<?php echo $?>" method="get">
+                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                     <div class="row">
                         <div class="col-lg-3"><label for="nev">Név:</label></div>
-                        <div class="col-lg-9"><input type="text" id="nev" class="bg-success text-white"></div>
+                        <div class="col-lg-9"><input type="text" id="nev" class="bg-success text-white" name="nev"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3"><label for="email">Email:</label></div>
-                        <div class="col-lg-9"><input type="email" id="email" class="bg-success text-white"><br></div>
+                        <div class="col-lg-9"><input type="text" id="email" class="bg-success text-white" name="email"></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <button onclick="bekuld()" class="btn btn-success text-center">Beküld</button>
+                            <button type="submit" onclick="bekuld()" class="btn btn-success text-center">Beküld</button>
                         </div>
                     </div>
-                    <div class="row">
+
+                </form>
+                <div class="row">
                         <div class="col-lg-12 border border-warning mt-3">
                             <span class="text-warning">Név: </span><span id="nevMegjelenit" class="text-danger"></span><br>
                             <span class="text-warning">Email: </span><span id="emailMegjelenit" class="text-danger"></span>
                         </div>
 
-                    </div>
-                </form>
+                </div>
+
+                <?php
+                    if(isset($_GET["nev"]))
+                    {
+                        echo htmlspecialchars($_GET["nev"]) . "<br>"; 
+                    }
+
+                    if(isset($_GET["nev"]))
+                    {
+                        echo htmlspecialchars($_GET["email"]) . "<br>";
+                    }
+
+
+                    if(isset($_POST["nev"]))
+                    {
+                        echo htmlspecialchars($_POST["nev"]) . "<br>"; 
+                    }
+
+                    if(isset($_POST["nev"]))
+                    {
+                        echo htmlspecialchars($_POST["email"]) . "<br>";
+                    }
+
+                    
+                    
+                ?>
             </div>
 
             <div class="col-lg-4"></div>
