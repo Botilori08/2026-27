@@ -20,7 +20,7 @@
                     <h1 class="text-center">Űrlap</h1>
                 </div>
 
-                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                <form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-3"><label for="nev">Név:</label></div>
                         <div class="col-lg-9"><input type="text" id="nev" class="bg-success text-white" name="nev"></div>
@@ -33,6 +33,10 @@
                         <div class="col-lg-12">
                             <button type="submit" onclick="bekuld()" class="btn btn-success text-center">Beküld</button>
                         </div>
+                    </div>
+					<div class="row">
+                        <div class="col-lg-3"><label for="email">Email:</label></div>
+                        <div class="col-lg-9"><input type="file" class="bg-success text-white" name="file"></div>
                     </div>
 
                 </form>
@@ -66,7 +70,14 @@
                         echo htmlspecialchars($_POST["email"]) . "<br>";
                     }
 
+
+                    echo "<pre>";
+                    var_dump($_GET);
+                    var_dump($_POST);
+                    echo "</pre>";
                     
+
+                    phpinfo(32);
                     
                 ?>
             </div>
