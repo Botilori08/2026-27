@@ -13,9 +13,15 @@
             height: 100px;
             width: 100px;
         }
+
+        img
+        {
+            height: 300px;
+
+        }
     </style>
 </head>
-<body>
+<body onload="betolt()">
     <div class="container-fluid p-0 m-0">
             <div class="row p-0">
                 <div class="col-lg-2 border border-dark h-50"><img src="./mavketfarku001.webp" alt="" class="img-fluid img-thumbnail rounded-circle m-0 p-0" id="logo"></div>
@@ -24,24 +30,94 @@
 
 
             <nav class="row border border-dark navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">menü1</a>
-            <a class="navbar-brand" href="#">menü2</a>
+            <div class="container-fluid" id="menu">
+            
+            <!--<a class="navbar-brand" href="#">menü2</a>
             <a class="navbar-brand" href="#">menü3</a>
-            <a class="navbar-brand" href="#">menü4</a>
+            <a class="navbar-brand" href="#">menü4</a>-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
             
             </div>
         </nav>
         <div class="row">
-            <div class="col-lg-5 border border-dark">
-                <img src="./1633419254-temp-oiMoJJ_cover.webp" alt="" class="img-fluid h-50">
+            <div class="col-lg-5 border border-dark" id="kepes">
+
             </div>
-            <div class="col-lg-7 border border-dark">aaaaaaaaaaaaaaaaaaaaaa</div>
+            <div class="col-lg-7 border border-dark" id="tartalom">
+
+            
+                
+        </div>
 
         </div>          
         </div>
     </div>
+
+    <script>
+        /*
+                <a class="navbar-brand" href="#">menü1</a>
+
+                <img src="./1633419254-temp-oiMoJJ_cover.webp" alt="" class="m-3">
+                <caption>Bzmot 601 ikarus motorvonat</caption>
+                <img src="./94d55249eea4889eb984ddfbc82b1278.jpg" alt="" class="m-3">
+                <caption>Exportra szánt ikarus motorvonat</caption>
+        */
+
+        let szovegek;
+
+        function tartalomKeszit(kepek,kepleirasok,szoveg)
+        {
+            let kepekHelye = document.getElementById("kepes");
+            kepekHelye.innerHTML = "";
+
+            kepek.forEach((e,i) =>
+            {
+                let kep = document.createElement("img");
+                kep.src = e;
+                kep.className = "m-3";
+                let leiras = document.createElement("caption");
+                leiras.innerHTML = kepleirasok[i];
+                kepekHelye.appendChild(kep)
+                kepekHelye.appendChild(leiras)
+            })
+
+            document.getElementById("tartalom").innerHTML = szoveg;
+        }
+
+        function betolt()
+        {
+
+            
+
+            fetch("menuk.json")
+            .then(x => x.json())
+            .then(y => 
+                {
+                    console.log(y)
+
+                    szovegek = y;
+
+                    console.log(szovegek)
+
+                    szovegek.nev.forEach((e,i)=> {
+                        let button = document.createElement("button");
+                        button.className = "navbar-brand";
+                        button.addEventListener("click", function(){ tartalomKeszit(szovegek.kepek[i],szovegek.leirasok[i],szovegek.szoveg[i]) });
+                        button.innerText = szovegek.nev[i];
+                        document.getElementById("menu").appendChild(button);
+                    });
+                    
+                }
+            )
+
+            
+        }
+
+
+
+        
+
+    </script>
 </body>
 </html>
