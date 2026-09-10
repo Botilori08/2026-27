@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <style>
+        .mezo
+        {
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body onload="tablaKeszit()">
+    <div class="container">
+        <div class="" id="tabla">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let sakktabla = document.getElementById("tabla")
+
+        function tablaKeszit()
+        {
+            let sor = 8;
+            let oszlop = 8;
+            for(let i = 0;i < sor;i++)
+            {
+                let egySor = document.createElement("div");
+                egySor.className = "row";
+                for(let j = 0;j < oszlop;j++)
+                {
+                    let egyCella = document.createElement("div")
+                    egyCella.className = "col-lg-"+12 / oszlop;
+                    egyCella.classList.add("mezo");
+                    egyCella.classList.add("border");
+                    egyCella.classList.add("border-black");
+                    //egyCella.innerHTML = `${i}\t${j}`;
+
+                    if(i%2 == 0)
+                    {
+                        if(j%2 == 0)
+                        {
+                            egyCella.classList.add("bg-white");
+                        }
+                        else
+                        {
+                            egyCella.classList.add("bg-dark");
+                            
+                        }
+                    }
+                    else
+                    {
+                        if(j%2 == 0)
+                        {
+                            egyCella.classList.add("bg-dark");
+                        }
+                        else
+                        {
+                            egyCella.classList.add("bg-white");
+                        }
+                    }
+                    //egyCella.innerHTML = "aaa"
+                    egySor.appendChild(egyCella)
+
+                }
+                sakktabla.appendChild(egySor)
+            }
+
+        }
+
+    </script>
+</body>
+</html>
