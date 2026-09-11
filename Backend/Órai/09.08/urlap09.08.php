@@ -123,6 +123,8 @@
                             if (move_uploaded_file($_FILES["file"]["tmp_name"], $celFile)) 
                             {
                                 echo "The file ". htmlspecialchars(basename( $_FILES["file"]["name"])). " has been uploaded.";
+                                kepMeretez($celFile,"kepek/kicsi/" . basename($_FILES["file"]["name"]),50,50);
+                                kepMeretez($celFile,"kepek/nagy/" . basename($_FILES["file"]["name"]),500,500);
                             }
                             else 
                             {
@@ -132,7 +134,48 @@
                     }
 
 
+                    function kepMeretez($forras,$cel,$szelesseg,$magassag)
+                    {
+
+                        //https://www.php.net/manual/en/function.imagecopyresampled.php
+                        // The file
+
+                        $filename = $forras;
+
+                        // Set a maximum height and width
+                        $width = $szelesseg;
+                        $height = $magassag;
+
+                        // Content type
+                        //header('Content-Type: image/jpeg');
+
+                        // Get new dimensions
+                        list($width_orig, $height_orig) = getimagesize($filename);
+
+                        $ratio_orig = $width_orig/$height_orig;
+
+                        if ($width/$height > $ratio_orig) 
+                        {
+                            $width = $height*$ratio_orig;
+                        } 
+                        else 
+                        {
+                            $height = $width/$ratio_orig;
+                        }
+
+                        // Resample
+                        $image_p = imagecreatetruecolor($width, $height);
+                        $image = imagecreatefromjpeg($filename);
+                        imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+                        // Output
+                        imagejpeg($image_p,$cel, 100);    
+                                            
+                    }
+
                     phpinfo(32);
+
+
 
                     
                     
