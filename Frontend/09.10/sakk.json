@@ -1,0 +1,31 @@
+{ "figurak": [
+    {"pozicio": "A8","kepForras": "feketebastya.png"},
+    {"pozicio":"C8","kepForras": "feketefuto.png"},
+    {"pozicio":"D8","kepForras":"feketekiralyno.png"},
+    {"pozicio":"F8","kepForras":"feketekiraly.png"},
+    {"pozicio": "H8","kepForras": "feketebastya.png"},
+    {"pozicio": "A7","kepForras": "feketegyalog.png"},
+    {"pozicio": "B7", "kepForras": "feketegyalog.png"},
+    {"pozicio": "C7","kepForras": "feketegyalog.png"},
+    {"pozicio": "D7","kepForras": "feketegyalog.png"},
+    {"pozicio": "D5","kepForras": "feketegyalog.png"},
+    {"pozicio": "H8","kepForras": "feketegyalog.png"},
+    {"pozicio": "E5","kepForras": "feketegyalog.png"},
+    {"pozicio": "F7","kepForras": "feketegyalog.png"},
+    {"pozicio": "G7","kepForras": "feketegyalog.png"},
+    {"pozicio": "H7","kepForras": "feketegyalog.png"},
+    {"pozicio": "G7","kepForras": "feketegyalog.png"},
+    {"pozicio": "C6","kepForras": "feketelo.png"},
+    {"pozicio": "F6","kepForras": "feketelo.png"},
+    {"pozicio":"C5","kepForras":"feketefuto.png"}
+
+
+
+
+
+]
+
+
+
+
+}
