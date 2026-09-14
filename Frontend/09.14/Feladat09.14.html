@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat</title>
+
+    <style>
+        input
+        {
+            margin: auto;
+            margin-bottom: 5px;
+        }
+        #inputokHelye
+        {
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="">
+                    <div id="urlapHelye">
+                <input type="text" name="nev"><br>
+                <input type="number" name="szam">
+            </div>
+            <button type="button" onclick="bekuld()">Beküldés</button>
+            <button type="button" onclick="hozzaad()">Új mező hozzáadása</button>
+            <button type="button" onclick="csere()">Csere</button>
+
+    </form>
+
+
+    <script>
+
+        let hely = document.getElementById("urlapHelye");
+
+        let szamlalo = 1;
+
+        let kivalasztottak = [];
+
+        function hozzaad()
+        {
+            let input = document.createElement("input");
+            input.name = "inputNev"+szamlalo;
+            input.value = szamlalo;
+            input.addEventListener("click",function() 
+            {
+                this.style.border = "2px solid red";
+                kivalasztottak.push(this);
+                console.log(kivalasztottak);
+            });
+
+            let br = document.createElement("br");
+            hely.appendChild(br);
+            hely.appendChild(input);
+            szamlalo++;
+        }
+       
+
+    </script>
+</body>
+</html>
