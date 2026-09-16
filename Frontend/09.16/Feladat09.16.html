@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Táblaszínező</title>
+
+    <style>
+        .cella
+        {
+            height: 20px;
+            width: 20px;
+            border:1px solid black;
+            
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="color" name="" id="szin" onchange="szinValtas()">
+
+    <table id="tablaHelye">
+
+    </table>
+
+    <script>
+
+        let tablaHelye = document.getElementById("tablaHelye");
+        let szin = document.getElementById("szin").value;
+
+        for(let i = 0;i < 16;i++)
+        {
+            let sor = document.createElement("tr");
+            for(let j = 0;j < 16;j++)
+            {
+                let cella = document.createElement("td");
+                cella.className = "cella";
+                cella.addEventListener("click",function() {cellaSzinez(szin,this)})
+                sor.appendChild(cella);
+
+            }
+            tablaHelye.appendChild(sor);
+        }
+
+        function szinValtas()
+        {
+            szin = document.getElementById("szin").value;
+        }
+
+        function cellaSzinez(szin,cella)
+        {
+            cella.style.backgroundColor = szin;
+        }
+
+    </script>
+</body>
+</html>

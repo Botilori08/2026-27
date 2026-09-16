@@ -1,0 +1,5 @@
+16*16 táblázat
+
+input mező -> táblázat háttérszínét
+
+Amelyik cellájára kattintunk az legyen olyan színű
