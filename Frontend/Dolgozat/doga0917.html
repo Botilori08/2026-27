@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-12">
+            <h1 class="text-center">Számok oszthatósága</h1>
+            <label for="">Adj meg egy számot:</label>
+            <input type="number" class="input-group" id="szam">
+            <button type="button" onclick="bekuld()" class="btn btn-secondary mt-3">Bekuldes</button>
+            <div id="valasz" class="text-danger"></div>
+        </div>
+        <div class="row col-12 mt-4">
+            <div class="col-1 border border-dark">
+                <div id="header">2
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato2"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">3
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato3"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">4
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato4"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">5
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato5"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">6
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato6"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">7
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato7"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">8
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato8"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">9
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato9"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">10
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato10"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">11
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato11"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">12
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato12"></div>
+            </div>
+            <div class="col-1 border border-dark">                
+                <div id="header">13
+                    <button onclick="rendez()" class="btn btn-secondary">Rendezés</button>
+                </div>
+                <div id="oszthato13"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        let szamok = []
+        let rendezniValok = []
+        let szam;
+        function bekuld()
+        {
+            
+            if(parseInt(document.getElementById("szam").value) > 0)
+            {
+                szam = parseInt(document.getElementById("szam").value);
+                szamok.push(parseInt(document.getElementById("szam").value));
+            }
+            console.log(szam)
+
+            if(szam%2 == 0)
+            {   
+                document.getElementById("oszthato2").innerHTML += szam+ " ";
+                rendezniValok.push({"oszto":2,"szamok":[]})
+                
+            }
+            if(szam%3 == 0)
+            {   
+                document.getElementById("oszthato3").innerHTML += szam+ " ";
+            }
+            if(szam%4 == 0)
+            {   
+                document.getElementById("oszthato4").innerHTML += szam+ " ";
+            }
+            if(szam%5 == 0)
+            {   
+                document.getElementById("oszthato5").innerHTML += szam+ " ";
+            }
+            if(szam%6 == 0)
+            {   
+                document.getElementById("oszthato6").innerHTML += szam + " ";
+            }
+            if(szam%7 == 0)
+            {   
+                document.getElementById("oszthato7").innerHTML += szam + " ";
+            }
+            if(szam%8 == 0)
+            {   
+                document.getElementById("oszthato8").innerHTML += szam + " ";
+            }
+            if(szam%9 == 0)
+            {   
+                document.getElementById("oszthato9").innerHTML += szam + " ";
+            }
+            if(szam%10 == 0)
+            {   
+                document.getElementById("oszthato10").innerHTML += szam + " ";
+            }
+            if(szam%11 == 0)
+            {   
+                document.getElementById("oszthato11").innerHTML += szam + " ";
+            }
+            if(szam%12 == 0)
+            {   
+                document.getElementById("oszthato12").innerHTML += szam + " ";
+            }
+            if(szam%13 == 0)
+            {   
+                document.getElementById("oszthato13").innerHTML += szam + " ";
+            }
+
+        }
+
+        function rendez()
+        {
+            let rendezniValo = []
+
+        }
+
+        
+
+    </script>
+</body>
+</html>

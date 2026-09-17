@@ -1,0 +1,4 @@
+A megadott odalak: a= 2 b= 3 c= 67 A háromszög nem szerkeszthető meg!
+A megadott odalak: a= 3 b= 4 c= 7 A háromszög nem szerkeszthető meg!
+A megadott odalak: a= 3 b= 4 c= 5 A háromszög megszerkeszthető!
+A megadott odalak: a= 66346 b= 6464 c= 63646 A háromszög megszerkeszthető!

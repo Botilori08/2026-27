@@ -1,0 +1,4 @@
+bootstrap űrlap
+3 szám, háromszög 3 oldala
+Ellenőrizzük lehet e háromszög
+Eredmény oldalakkal együtt fájlba, soronként, szövegesen 
