@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=0, initial-scale=1.0">
+    <title>Login</title>
+
+
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-12">
+        <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']);?>" method="post" enctype="multipart/form-data">
+            <input type="text" name="userName">
+            <input type="password" name="password">
+        </form>
+        </div>
+    </div>
+</body>
+</html>
