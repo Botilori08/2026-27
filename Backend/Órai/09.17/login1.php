@@ -1,12 +1,24 @@
 <?php
+
+    session_start();
+
     $login = false;
+
+
 
     if(isset($_POST['user']) && isset($_POST['jelszo']))
     {
         $login = $_POST['user'] === "admin" && $_POST['jelszo'] === "admin";
+
+        if($login)
+        {
+            $_SESSION["use"] = htmlspecialchars($_POST['user']);
+            $_SESSION["belepve"]  = true;
+        }
+
     }    
 
-    if(!$login)
+    if(!isset($_SESSION["belepve"]) || !$_SESSION["belepve"])
     {
 ?>
 <h1>Belépés</h1>
@@ -22,6 +34,9 @@
     else
     {
         echo "<h1>Üdv kishaver!</h1>";
+        echo '<form method="post" action="login1.php">';
+        echo '<button type="submit" name="kilepes">Kilépés</button><br>';
+        echo '</form>';
         echo '<a href="login1.php">Katt ide!</a>';
     }
 ?>
