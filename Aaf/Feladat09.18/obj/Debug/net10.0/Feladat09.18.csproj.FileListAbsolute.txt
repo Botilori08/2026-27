@@ -1,0 +1,16 @@
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\bin\Debug\net10.0\Feladat09.18.exe
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\bin\Debug\net10.0\Feladat09.18.deps.json
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\bin\Debug\net10.0\Feladat09.18.runtimeconfig.json
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\bin\Debug\net10.0\Feladat09.18.dll
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\bin\Debug\net10.0\Feladat09.18.pdb
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.AssemblyInfoInputs.cache
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.AssemblyInfo.cs
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.sourcelink.json
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.dll
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\refint\Feladat09.18.dll
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.pdb
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat09.18.genruntimeconfig.cache
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\ref\Feladat09.18.dll
+C:\xampp\htdocs\2026-27\Aaf\Feladat09.18\obj\Debug\net10.0\Feladat0.4C5A3426.Up2Date

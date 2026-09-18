@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mértékegységek</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-12 ">
+            <h1 class="text-primary">Mértékegység</h1>
+            <input type="text" id="mertek" class="input-group mt-4">
+            <button type="button" onclick="bekuldes()"class="btn btn-primary mt-3">Beküldés</button>
+        </div>
+		<div class="col-12 mt-5">
+			<div class="row"  id="tabla">
+
+			</div>
+		</div>
+    </div>
+
+
+    <script>
+        function bekuldes()
+        {
+            let bekuldottSor = document.getElementById("mertek").value;
+
+            let szamErtek = parseInt(bekuldottSor.split(" ")[0]);
+            let mertekEgyseg = bekuldottSor.split(" ")[1];
+
+            let mertekek = {"mm":0,"cm":0,"dm":0,"m":0,"km":0};
+
+
+			if(Object.keys(mertekek).includes(mertekEgyseg))
+			{
+				mertekek[mertekEgyseg] = szamErtek;
+				if(mertekEgyseg == "km")
+				{
+					mertekek["m"] = szamErtek*1000;
+					mertekek["dm"] = szamErtek*10000;
+					mertekek["cm"] = szamErtek*100000;
+					mertekek["mm"] = szamErtek*1000000;
+					console.log(mertekek);
+					
+				}
+				if(mertekEgyseg == "m")
+				{
+					mertekek["km"] = szamErtek/1000;
+					mertekek["dm"] = szamErtek*10;
+					mertekek["cm"] = szamErtek*100;
+					mertekek["mm"] = szamErtek*1000;
+					console.log(mertekek);
+				}
+				if(mertekEgyseg == "dm")
+				{
+					mertekek["km"] = szamErtek/10000;
+					mertekek["m"] = szamErtek/10;
+					mertekek["cm"] = szamErtek*10;
+					mertekek["mm"] = szamErtek*100;
+					console.log(mertekek);
+				}
+				if(mertekEgyseg == "cm")
+				{
+					
+					mertekek["km"] = szamErtek/100000;
+					mertekek["m"] = szamErtek/100;
+					mertekek["dm"] = szamErtek/10;
+					mertekek["mm"] = szamErtek*10;
+					console.log(mertekek);
+				}
+				if(mertekEgyseg == "mm")
+				{
+					mertekek["km"] = szamErtek/1000000;
+					mertekek["m"] = szamErtek/1000;
+					mertekek["dm"] = szamErtek/100;
+					mertekek["cm"] = szamErtek/10;
+					console.log(mertekek);
+				}
+				
+				tablaKeszit(mertekek);
+				
+				
+			}
+
+        }
+
+		function tablaKeszit(kiirandomertek)
+		{
+			//console.log(Object.keys(kiirandomertek).length)
+
+			let tabla = document.getElementById("tabla")
+			tabla.innerHTML = "";
+
+			Object.keys(kiirandomertek).forEach((e,i) => {
+				let oszlop = document.createElement("div");
+				oszlop.innerHTML = e;
+				oszlop.className += "col-"+12/Object.keys(kiirandomertek).length;
+				oszlop.className += " border";
+				oszlop.className += " border-black";
+				oszlop.id = e+"_oszlop";
+				
+
+				let cella = document.createElement("div");
+				cella.innerHTML = Object.values(kiirandomertek)[i];
+
+				oszlop.appendChild(cella);
+				tabla.appendChild(oszlop);
+
+				
+			});
+			
+		}
+
+
+
+    </script>
+
+</body>
+</html>
