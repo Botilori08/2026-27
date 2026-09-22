@@ -1,0 +1,3 @@
+felhasználónév email
+Minden új adat egy oldalsó sávban jelenítsünk meg táblázatszerűen.
+
