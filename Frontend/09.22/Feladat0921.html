@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <title></title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="row col-12">
+            <div class="col-8">
+                <h1 class="text-primary">Űrlap</h1>
+                <label for="userNev">Felhasználónév</label>
+                <input type="text" name="userNev" id="userNev" class="input-group">
+                <label for="email">Email cím</label>
+                <input type="email" name="email" id="email" class="input-group">
+                <button type="button" onclick="bekuldes()" class="btn btn-primary mt-3" id="kuldesGomb">Beküldés</button>
+            </div>
+            <div class="col-4" id="tablahelye"> 
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let modositandoUser;
+        let modositandoEmail;
+
+        let tablahelye = document.getElementById("tablahelye");
+        tablahelye.innerHTML = "";
+        let tabla = document.createElement("table");
+        tabla.classList.add("table");
+        tabla.classList.add("table-striped-columns");
+        tabla.classList.add("table-bordered");
+
+        tabla.id = "tablazat";
+            
+        let sor = document.createElement("tr");
+        let fejlec = document.createElement("th");
+        fejlec.innerHTML = "Usernév"
+        fejlec.scope = "col";
+        sor.appendChild(fejlec);
+        fejlec = document.createElement("th");
+        fejlec.scope = "col";
+        sor.appendChild(fejlec);
+        fejlec = document.createElement("th");
+        fejlec.innerHTML = "Email cím"
+        fejlec.scope = "col";
+        sor.appendChild(fejlec);
+        tabla.appendChild(sor);
+
+        let nev = document.getElementById("userNev").value;
+        let email = document.getElementById("email").value;
+        let kuldesGomb = document.getElementById("kuldesGomb");
+        let adatok = [];
+
+        if(nev != modositandoUser && email != modositandoEmail)
+        {
+            kuldesGomb.click = function(){bekuldes()}
+        }
+        else
+        {
+            kuldesGomb.click = function(){modosit(tabla.children)}
+        }
+
+        function bekuldes()
+        {
+            localStorage.setItem("user",nev)
+            localStorage.setItem("email",email);
+
+            nev = document.getElementById("userNev").value;
+            email = document.getElementById("email").value;
+            tablaFeltolt(tabla,{"user": nev,"email":email});
+
+        }
+
+        function tablaFeltolt(tabla,userAdatok)
+        {
+                let tr = document.createElement("tr");
+
+                let cella = document.createElement("td");
+                cella.innerHTML = userAdatok.user;
+                tr.appendChild(cella);
+
+                cella = document.createElement("td");
+                let gomb = document.createElement("button");
+                gomb.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/></svg>';
+                gomb.classList.add("ml-3");
+                gomb.classList.add("modositoGomb");
+                gomb.addEventListener("click",function() {adatModosit(this)});
+                cella.appendChild(gomb);
+                //cella.contentEditable = "true";
+                tr.appendChild(cella);
+                cella = document.createElement("td");
+                cella.innerHTML = userAdatok.email;
+                cella.contentEditable = "true";
+                tr.appendChild(cella);
+
+                tabla.appendChild(tr);
+
+                tablahelye.appendChild(tabla);
+        }
+
+
+
+
+        function adatModosit(obj)
+        {
+            let user = document.getElementById("userNev");
+            let email = document.getElementById("email");
+
+            console.log(obj);
+
+            //console.log(obj.parentElement.parentElement.children)
+
+            user.value = obj.parentElement.parentElement.children[0].innerHTML;
+            email.value = obj.parentElement.parentElement.children[2].innerHTML;
+
+            modositandoUser = obj.parentElement.parentElement.children[0].innerHTML;
+            modositandoEmail= obj.parentElement.parentElement.children[2].innerHTML;
+
+        }
+
+        function modosit(szuloElem)
+        {
+            console.log(szuloElem);
+        }
+
+
+
+    </script>
+
+</body>
+</html>
