@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</head>
+<body onload="sutiKiir()">
+        <div class="container"> 
+        <div class="row col-12">
+            <div class="col-12">
+                <h1 class="text-primary">Űrlap</h1>
+                <label for="userNev">Felhasználónév</label>
+                <input type="text" name="userNev" id="userNev" class="input-group">
+                <!--<label for="email">Email cím</label>
+                <input type="email" name="email" id="email" class="input-group">-->
+                <button type="button" onclick="sutiTarol()" class="btn btn-primary mt-3">Beküldés</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        function sutiTarol()
+        {
+            let nev = document.getElementById("userNev").value;
+            const d = new Date();
+            d.setTime(d.getTime() + (5*1000));
+            let expires = "expires="+ d.toUTCString();
+
+
+            document.cookie = `név = ${nev} ` + expires;
+            sutiKiir();
+        }
+
+        function sutiKiir()
+        {
+            let x = document.cookie;
+
+            console.log(x);
+        }
+
+
+    </script>
+</body>
+</html>
