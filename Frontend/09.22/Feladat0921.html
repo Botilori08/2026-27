@@ -8,7 +8,7 @@
 
     <title></title>
 </head>
-<body>
+<body onload="letolt()">
     <div class="container"> 
         <div class="row col-12">
             <div class="col-8">
@@ -17,7 +17,8 @@
                 <input type="text" name="userNev" id="userNev" class="input-group">
                 <label for="email">Email cím</label>
                 <input type="email" name="email" id="email" class="input-group">
-                <button type="button" onclick="bekuldes()" class="btn btn-primary mt-3" id="kuldesGomb">Beküldés</button>
+                <button type="button" onclick="bekuldes()" class="btn btn-primary mt-3" id="kuldesGomb">Új adat mentése</button>
+                <button type="button" onclick="modosit()" class="btn btn-primary mt-3" id="modositasGomb">Módosít</button>
             </div>
             <div class="col-4" id="tablahelye"> 
 
@@ -31,6 +32,8 @@
 
         let modositandoUser;
         let modositandoEmail;
+        let modositandoSorszam;
+        let szamlalo = 0;
 
         let tablahelye = document.getElementById("tablahelye");
         tablahelye.innerHTML = "";
@@ -60,31 +63,45 @@
         let kuldesGomb = document.getElementById("kuldesGomb");
         let adatok = [];
 
-        if(nev != modositandoUser && email != modositandoEmail)
+        /*if(nev != modositandoUser && email != modositandoEmail)
         {
             kuldesGomb.click = function(){bekuldes()}
         }
         else
         {
-            kuldesGomb.click = function(){modosit(tabla.children)}
-        }
+            console.log("hello")
+            kuldesGomb.addEventListener("click",function() {modosit(tabla)})
+        }*/
 
         function bekuldes()
         {
-            localStorage.setItem("user",nev)
-            localStorage.setItem("email",email);
+
 
             nev = document.getElementById("userNev").value;
             email = document.getElementById("email").value;
+
+            localStorage.setItem("user",nev)
+            localStorage.setItem("email",email);
+
             tablaFeltolt(tabla,{"user": nev,"email":email});
 
         }
 
+        function letolt()
+        {
+            let nev = localStorage.getItem("user");
+            let email = localStorage.getItem("email");
+
+            tablaFeltolt(tabla,{"user":nev,"email":email});
+        }
+
+
         function tablaFeltolt(tabla,userAdatok)
         {
                 let tr = document.createElement("tr");
-
+                tr.dataset["user"] = szamlalo;
                 let cella = document.createElement("td");
+                
                 cella.innerHTML = userAdatok.user;
                 tr.appendChild(cella);
 
@@ -105,6 +122,9 @@
                 tabla.appendChild(tr);
 
                 tablahelye.appendChild(tabla);
+
+                szamlalo++;
+
         }
 
 
@@ -121,15 +141,30 @@
 
             user.value = obj.parentElement.parentElement.children[0].innerHTML;
             email.value = obj.parentElement.parentElement.children[2].innerHTML;
+            modositandoSorszam = obj.parentElement.parentElement.dataset.user;
+            console.log(modositandoSorszam);
 
             modositandoUser = obj.parentElement.parentElement.children[0].innerHTML;
             modositandoEmail= obj.parentElement.parentElement.children[2].innerHTML;
+            
 
         }
 
         function modosit(szuloElem)
         {
-            console.log(szuloElem);
+
+            nev = document.getElementById("userNev").value;
+            email = document.getElementById("email").value;
+
+            console.log(modositandoSorszam);
+
+            let sor = document.querySelector("[data-user='"+modositandoSorszam+"']");
+
+            sor.children[0].innerHTML = nev;
+            sor.children[2].innerHTML = email;
+
+            //var elements = document.querySelectorAll('[data-name="value"]')
+            console.dir(sor)
         }
 
 
