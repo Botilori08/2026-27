@@ -25,12 +25,21 @@
                 <img src="./ČD_logo.svg" alt="" class="logo">
 
             </div>
-            <div class="row">
+            <div class="row mb-4">
                 <div class="col-2" id="kivalasztoLista">
 
                 </div>
-                <div class="col-5" id="urlap">
+
+
+
+
+
+            </div>
+            <div class="row ml-2 mr-2">
+                <div class="col-6 ml-2" id="urlap">
+                    
                     <form>
+                        <h1>Vonat létrehozása</h1>
                         <label for="vonatSzam">Vonatszám</label>
                         <input type="number" name="vonatSzam" id="vonatSzam" class="input-group">
                         <label for="vonatTipus">Vonattípus</label>
@@ -42,16 +51,17 @@
 
 
                 </div>
-                <div class="col-5" id="utvonal">
+                <div class="col-6 mr-2" id="utvonal">
                     <label for="utvonal">Útvonal</label>
                     <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
+                    <button type="submit" class="btn btn-success mt-3">Beküldés</button>
+                    <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>
                 </div>
-
+            </div>
+            <div class="row">
                 <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end">
 
                 </div>
-
-
             </div>
             </div>
 
@@ -86,7 +96,7 @@
                         nagyDoboz.classList.add("border-black")
                         nagyDoboz.innerHTML = e.nev;
 
-                        e.kepek.forEach(e => 
+                        e.kepek.forEach(kep => 
                             {
                                 let kepDoboz = document.createElement("div")
                                 kepDoboz.addEventListener("click",function() {kivalaszt(this)})
@@ -94,12 +104,17 @@
                                 kepDoboz.classList.add("kepesDoboz")
                                 kepDoboz.classList.add("border");
                                 kepDoboz.classList.add("border-black")
-                                kepDoboz.classList.add("overflow-x-auto")
+                                //kepDoboz.classList.add("overflow-x-auto")
                                 kepDoboz.classList.add("d-flex")
                                 kepDoboz.classList.add("flex-nowrap")
                                 kepDoboz.classList.add("align-items-end")
                                 let img = document.createElement("img")
-                                img.src = "kepek/"+e;
+                                img.classList.add("img-fluid")
+                                if(e.nev.includes("mozdony") || e.nev == "Motorkocsik/motorvonatok")
+                                {
+                                    img.dataset["vontatojarmu"] = true;
+                                }
+                                img.src = "kepek/"+kep;
                                 //img.classList.add("img-fluid");
                                 kepDoboz.appendChild(img);
                                 nagyDoboz.appendChild(kepDoboz);
@@ -129,13 +144,60 @@
             )
         }
 
+        let jarmuSzam = 0;
+
         function kivalaszt(obj)
         {
+
             console.log(obj.children[0])
             let kep = document.createElement("img")
             kep.src = obj.children[0].src
             kep.classList = obj.children[0].classList;
-            document.getElementById("vonat").appendChild(kep)
+            kep.addEventListener("dblclick",function(){forgatas(kep)})
+            if(jarmuSzam == 0)
+            {
+                if(obj.children[0].dataset["vontatojarmu"] == "true")
+                {
+                    document.getElementById("vonat").appendChild(kep);
+                    jarmuSzam++;
+                }
+                else
+                {
+                    alert("Az első jármű csak mozdony vagy vezérlőkocsi lehet!")
+                } 
+            }
+            else
+            {
+                document.getElementById("vonat").appendChild(kep);
+                jarmuSzam++;
+            }
+
+            
+
+
+            
+        }
+
+        function forgatas(elem)
+        {
+            if(elem.dataset.forgatott == "true")
+            {
+                elem.style.transform = "scaleX(1)";
+                elem.dataset.forgatott = false;
+            }
+            else
+            {
+                elem.style.transform = "scaleX(-1)";
+                elem.dataset["forgatott"] = true;
+            }
+
+
+
+        }        
+
+        function torles()
+        {
+            document.getElementById("vonat").innerHTML = "";
         }
         
 

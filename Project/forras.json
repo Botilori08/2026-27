@@ -27,6 +27,7 @@
   "431_a.png",
   "432-b.gif",
   "432-f-b.gif",
+  "432-f-a.gif",
   "433-b.gif",
   "460-b.gif",
   "470-001-b.gif",
@@ -66,24 +67,28 @@
   "nev": "Első és másodosztályú kocsik",
   "kepek": [
     "AB-3930-h-b.gif",
-    "ABmz-m-b.gif"
+    "ABmz-m-b.gif",
+    "AB-3941-a.gif"
+    
   ]
 },
 {
     "nev": "Elsőosztályú kocsik",
     "kepek": [
-    "A-1980-b.gif",
+    
     "Ad-1930-h-b.gif",
     "Amz-1991-1-m-b.gif",
     "Amz-1991-3-m-b.gif",
-    "Ap,Apv-b.gif",
     "Apee-1044-b.gif",
     "Apee-1044-m-b.gif",
     "Apee-a.gif",
     "Apmz-1071-m-b.gif",
     "Apmz-1091-1-m-b.gif",
     "ARmz-8591-4-b.gif",
-    "ARp-b.gif"
+    "ARp-b.gif",
+    "A-1980-b.gif",
+    "Ad-1930-retro-a.gif",
+    "Ap,Apv-b.gif"
   ]
 },
 {
@@ -91,29 +96,23 @@
   "kepek": [
     "B-2030-h-b.gif",
     "B-2080-b.gif",
+    
     "Bbdpmz-8491-4-b.gif",
-    "Bc-5941-b.gif",
-    "Bcbmz-5990-m-b.gif",
-    "Bcmz-5091-1-m-b.gif",
-    "Bcmz-5091-2-m-b.gif",
     "Bd-2037-hd-b.gif",
     "Bd-2937-h-b.gif",
     "Bd-8407-b.gif",
     "Bd-8444-b.gif",
     "BDbh-116-b.gif",
     "BDbh-8228-b.gif",
-    "BDbt-8007-3-b.gif",
     "Bdmpee-8405-840-b.gif",
     "Bdmpee-8405-b.gif",
     "Bdmpee-8405-m2025-b.gif",
     "Bdmpee-m-b.gif",
-    "BDt-8005-400-b.gif",
-    "BDt-8005-400-m-b.gif",
-    "BDt-8005-406-b.gif",
-    "Bh,Bhv-b.gif",
     "Bhv-2005.1-b.gif",
     "Bhv-2005.3-m-b.gif",
     "Bhv-2005-601-a.gif",
+    "Bh,Bhv-b.gif",
+    "Bhv-retro-a.gif",
     "Bmz-2191-1-m-b.gif",
     "Bmz-2191-3-m-b.gif",
     "Bmz-2191-m-a.gif",
@@ -123,8 +122,120 @@
     "Bpee-2044-m-b.gif",
     "Bpee-2957-m-b.gif",
     "Bpee-a.gif",
+    "Bpmee_2076_m-b.gif",
+    "Bpmee-2076-b.gif",
+    "Bpmee_2205_m-b.gif",
+    "Bpmee-2070-m-b.gif",
+    "Bpmz-2071-m-b.gif",
+    "Bpmz-2091-1-m-b.gif",
+    "Bpmz-2091-4-b.gif",
+    "Byd,Bydee-m-a.gif",
+    "Bydee-7-ab-b.gif",
+    "Bydee-m3-b.gif",
+    "Bydee-m-b.gif",
+    "Byee-2155-0-b.gif",
+    "Byee-2155-5-b.gif",
+    "Byee-2155-8-m2-b.gif",
+    "Byee-2155-8-m-b.gif",
+    "Byee-m2-a.gif",
+    "Byee-m3-b.gif",
+    "Byee-m-a.gif",
+    "By-20-17.gif",
+    "B-2041-a.gif",
+    "Bd-2037-retro-a.gif"
+
+  ]
+},
+{
+  "nev":"Poggyász és/vagy kerékpárszállító kocsik",
+  "kepek":[
+    "Ddmee-b.gif",
+    "Dms-b.gif",
+    "Dd-9480-b.gif",
+    "Ddb-9205-b.gif",
+    "Ddb-9205-104-retro-a.gif",
+    "Ddb-9205-109-retro-a.gif",
+    "Dd-retro-a.gif"
+    
+
+  ]
+},
+{
+  "nev":"Éjszakai kocsik",
+  "kepek":[
+    
+    "Bcbmz-5990-m-b.gif",
+    "Bcmz-5091-1-m-b.gif",
+    "Bcmz-5091-2-m-b.gif",
+    "Bc-5941-b.gif",
+    "WLABmz-7191-0-m-b.gif",
+    "WLABmz-m-b.gif",
+    "WLAB-b.gif"
+  ]
+},
+{
+  "nev":"Étkezőkocsik",
+  "kepek":[
+    "WRmz-m-b.gif",
+    "WRRmz-m-b.gif",
+    "WRRee-m-b.gif",
+    "WRR-a.gif",
+    "WRmz-b.gif"
+  ]
+},
+
+{
+  "nev":"Vezérlőkocsik",
+  "kepek":[
+    "Bybdtee_m2-b.gif",
+    "Bybdtee-m1-b.gif",
+    "BDt-8005-400-b.gif",
+    "BDt-8005-400-m-b.gif",
+    "BDt-8005-406-b.gif",
+    "BDbt-8007-3-b.gif",
+    "BDbf-retro-a.png",
     "Bpmbdfee-8076_m-b.gif",
-    "Bpmbdfee-8076-b.gif"
+    "Bpmbdfee-8076-b.gif",
+    "Bmxfee_m-a.gif",
+    "Bmxt-2105-a.gif",
+    "Bmxtz-a.gif"
+  ]
+},
+{
+  "nev":"Motorkocsik/motorvonatok",
+  "kepek":[
+    "BDvmot-0414-a.gif",
+    "BVhmot-0424-a.gif",
+    "414_m-a.gif",
+    "BVmot-a.gif",
+    "415-m-b.gif",
+    "415-061-a.gif",
+    "425-m-a.gif",
+    "815-a.gif",
+    "Bzmot-m-a.gif",
+    "Bzmot-mZ-b.gif",
+    "Bzmot-b.gif",
+    "Bzmot_Z-a.gif",
+    "Bzmot-IP-m-a.gif",
+    "Bzmot-InterPici-a.gif",
+    "6312-m-a.gif",
+    "426-a.gif",
+    "416-m-a.gif",
+    "Bpmot-b.gif"
+
+    
+  ]
+},
+{
+  "nev":"Betétkocsik",
+  "kepek":[
+    "Bmx-2105-b.gif",
+    "Bmx-2205-b.gif",
+    "Bpmee_2205_m-a.gif",
+    "Bmxz-a.gif",
+    "Amxz-a.gif"
+    
   ]
 }
+
 ]
