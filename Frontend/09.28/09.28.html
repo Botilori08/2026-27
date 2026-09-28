@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Számok</h1>
+            <label for="szam">Adj meg egy számot</label>
+            <input type="number" id="szam" class="input-group">
+            <button onclick="bekuldes()" class="btn btn-secondary">Beküldés</button>
+            <button onclick="lekeres()" class="btn btn-primary">Számok lekérése</button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let szamok = []
+        let parosak = [];
+        let paratlanok = [];
+
+        function bekuldes()
+        {
+
+            let megadottSzam = parseInt(document.getElementById("szam").value)
+
+            if(megadottSzam%2 == 0)
+            {
+                parosak.push(megadottSzam)
+            }
+            else
+            {
+                paratlanok.push(megadottSzam)
+            }
+
+            console.log(parosak)
+            console.log(paratlanok)
+
+            localStorage.setItem("parosak");
+            localStorage.getItem("parosak",JSON.parse("parosak"));
+            let paros = localStorage.getItem("parosak",JSON.parse("parosak"));
+            paros.push(megadottSzam);
+            localStorage.setItem("parosak",JSON.stringify("parosak",JSON.stringify(paros)));
+
+
+            
+
+
+            kuldesStorageba(parosak,"parosak");
+            kuldesStorageba(paratlanok,"paratlanok")
+
+
+        }
+
+        function kuldesStorageba(tomb,valtozonev)
+        {
+            localStorage.setItem(valtozonev,JSON.stringify(tomb));
+            console.log("kuldes megvolt")
+        }
+
+        function lekeres()
+        {
+            parosak = JSON.parse(localStorage.getItem("parosak"))
+            console.log(localStorage.getItem("parosak"))
+            console.log(localStorage.getItem("paratlanok"))
+            paratlanok = localStorage.getItem("paratlanok")
+
+            console.log(parosak)
+            console.log(paratlanok)
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>
