@@ -114,7 +114,7 @@
                                 kepDoboz.classList.add("align-items-end")
                                 let img = document.createElement("img")
                                 img.classList.add("img-fluid")
-                                if(e.nev.includes("mozdony") || e.nev == "Motorkocsik/motorvonatok")
+                                if(e.nev.includes("mozdony") || e.nev == "Motorkocsik/motorvonatok" || e.nev == "Vezérlőkocsik")
                                 {
                                     img.dataset["vontatojarmu"] = true;
                                 }
@@ -129,19 +129,6 @@
                         divekHelye.appendChild(nagyDoboz);
 
                     });
-                            /**/
-
-
-                    /*y.forEach((e,i) => {
-
-                        
-                        Object.values(e)[i].forEach(e =>
-                            {
-
-                            }  
-                        )
-                        
-                    });*/
 
 
                 }
