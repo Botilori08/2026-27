@@ -16,6 +16,11 @@
         {
             margin-left:20px;
         }
+        #adatokUrlap
+        {
+            margin-left: 10px;
+        }
+
     </style>
 
 <body onload="betolt()">
@@ -39,7 +44,7 @@
 
 
             </div>
-            <div class="row ml-2 mr-2">
+            <div class="row ml-2 mr-2" id="adatokUrlap">
                 <div class="col-6 ml-2" id="urlap">
                     
                     <form>
@@ -55,7 +60,7 @@
 
 
                 </div>
-                <div class="col-6 mr-2" id="utvonal">
+                <div class="col-6 mr-2" id="utvonalMezo">
                     <label for="utvonal">Útvonal</label>
                     <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
                     <button type="submit" class="btn btn-success mt-3">Beküldés</button>
@@ -144,6 +149,8 @@
             let kep = document.createElement("img")
             kep.src = obj.children[0].src
             kep.classList = obj.children[0].classList;
+            kep.addEventListener("contextmenu", (e) => {e.preventDefault()});
+            kep.addEventListener("contextmenu", function() {torolEgyjarmuvet(this)})
             kep.addEventListener("dblclick",function(){forgatas(kep)})
             if(jarmuSzam == 0)
             {
@@ -189,6 +196,16 @@
         function torles()
         {
             document.getElementById("vonat").innerHTML = "";
+            document.getElementById("vonatSzam").value = "";
+            document.getElementById("vonatTipus").value = ""
+            document.getElementById("vonatNev").value = "";
+            document.getElementById("utvonal").value = "";
+        }
+
+
+        function torolEgyjarmuvet(obj)
+        {
+            obj.parentElement.removeChild(obj);
         }
         
 
