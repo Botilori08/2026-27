@@ -1,40 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vonatösszeállítás tervező</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
-
-    <style>
-        .logo
-        {
-            height: 50px;
-        }
-        #vonat
-        {
-            margin-left:20px;
-        }
-        #adatokUrlap
-        {
-            margin-left: 10px;
-        }
-
-    </style>
-
-<body onload="betolt()">
-    <div id="container-fluid">
-        <div class="col-12">
-            <div class="col-12 mb-2">
-                <h1 class="text-center">MÁV/GYSEV/ÖBB Vonatösszeállítás tervező</h1>
-                <img src="./MÁV.png" alt="" class="logo">
-                <img src="./GYSEV_logo.svg.webp" alt="" class="logo">
-                <img src="./Logo_ÖBB.svg.webp" alt="" class="logo">
-                <img src="./ČD_logo.svg" alt="" class="logo">
-
-            </div>
-            <div class="row mb-4">
+<div class="col-12">
+        <div class="row mb-4">
                 <div class="col-2" id="kivalasztoLista">
 
                 </div>
@@ -45,9 +10,11 @@
 
             </div>
             <div class="row ml-2 mr-2" id="adatokUrlap">
+
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" encrypt="multipart/form-data">
                 <div class="col-6 ml-2" id="urlap">
                     
-                    <form>
+                    
                         <h1>Vonat létrehozása</h1>
                         <label for="vonatSzam">Vonatszám</label>
                         <input type="number" name="vonatSzam" id="vonatSzam" class="input-group">
@@ -56,22 +23,24 @@
                         <label for="vonatNev">Vonatnév</label>
                         <input type="text" name="vonatNev" id="vonatNev" class="input-group"><br>
 
-                    </form>
+                    
 
 
+                    </div>
+                    <div class="col-6 mr-2" id="utvonalMezo">
+                        <label for="utvonal">Útvonal</label>
+                        <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
+                        <button type="submit" class="btn btn-success mt-3">Beküldés</button>
+                        <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>
+                    </div>
+                
                 </div>
-                <div class="col-6 mr-2" id="utvonalMezo">
-                    <label for="utvonal">Útvonal</label>
-                    <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
-                    <button type="submit" class="btn btn-success mt-3">Beküldés</button>
-                    <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>
-                </div>
-            </div>
-            <div class="row ml-3">
-                <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2">
+                <div class="row ml-3">
+                    <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
 
+                    </div>
                 </div>
-            </div>
+                </form>   
             </div>
 
             </div>
@@ -210,6 +179,8 @@
         
 
     </script>
-    
-</body>
-</html>
+
+    <?php
+
+        //phpinfo(32);
+    ?>
