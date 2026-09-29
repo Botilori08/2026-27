@@ -11,7 +11,7 @@
             </div>
             <div class="row ml-2 mr-2" id="adatokUrlap">
 
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" encrypt="multipart/form-data">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" encrypt="multipart/form-data" id="vonatAdatok">
                 <div class="col-6 ml-2" id="urlap">
                     
                     
@@ -27,16 +27,18 @@
 
 
                     </div>
-                    <div class="col-6 mr-2" id="utvonalMezo">
+                    <div class="col-6 mr-2 mb-5" id="utvonalMezo">
                         <label for="utvonal">Útvonal</label>
                         <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
                         <button type="submit" class="btn btn-success mt-3">Beküldés</button>
                         <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>
                     </div>
+                    <input type="hidden" id="rejtettInput" name="szerelveny">
                 
                 </div>
                 <div class="row ml-3">
-                    <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
+                    <div id="vonat" onsubmit="vonatBetoltKuldesre()" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
+                        
 
                     </div>
                 </div>
@@ -177,10 +179,34 @@
             obj.parentElement.removeChild(obj);
         }
         
+            let form = document.getElementById("vonatAdatok")
+
+            form.addEventListener("submit",function(){
+                let vonat = document.getElementById("vonat");
+
+                let rejtettInput = document.getElementById("rejtettInput");
+
+                rejtettInput.value = vonat.innerHTML;
+
+            })
+            //console.log(vonat);
+
 
     </script>
 
     <?php
 
-        //phpinfo(32);
+        $file = fopen("include/osszeallitasok.txt","a+");
+
+
+            $vonatNev = $_POST["vonatNev"];
+            $vonatTipus = $_POST["vonatTipus"];
+            $vonatSzam = (int)$_POST["vonatSzam"];
+            $utvonal = $_POST["utvonal"];
+            $szerelveny = $_POST["szerelveny"];
+
+        $sor = "$vonatSzam;$vonatNev;$vonatTipus;$utvonal;$szerelveny\n";
+        
+        fwrite($file,$sor);
+        fclose($file);
     ?>
