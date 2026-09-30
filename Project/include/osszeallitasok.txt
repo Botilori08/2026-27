@@ -1,8 +1,2 @@
-38976;;Sz;Békéscsaba - Szeged;
-                        
-
-                    <img src="https://localhost/2026-27/Project/kepek/418-112-b.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/Bhv-retro-a.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/Bhv-retro-a.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/BDbf-retro-a.png" class="img-fluid" data-forgatott="true" style="transform: scaleX(-1);">
-23121;;Ex;Budapest - Nagykanizsa;
-                        
-
-                    <img src="https://localhost/2026-27/Project/kepek/408-b.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/ARp-b.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/ARp-b.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/Ad-1930-retro-a.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/Bd-2037-retro-a.gif" class="img-fluid"><img src="https://localhost/2026-27/Project/kepek/Bd-2037-retro-a.gif" class="img-fluid">
+0;;;;<img src="http://localhost/2026-27/Project/kepek/414_m-a.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/Bpmee_2205_m-a.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/Bpmee_2205_m-a.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/414_m-a.gif" class="img-fluid" style="transform: scaleX(-1);" data-forgatott="true">
+0;;;;<img src="http://localhost/2026-27/Project/kepek/418-103-b.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/Ap,Apv-b.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/Ap,Apv-b.gif" class="img-fluid"><img src="http://localhost/2026-27/Project/kepek/Ap,Apv-b.gif" class="img-fluid">

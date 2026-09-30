@@ -1,7 +1,7 @@
 <?php
 
     //útvonalVálasztás
-    switch($_GET["menu"])
+    switch($_GET["menu"] ?? 0)
     {
         case 1:
         default:

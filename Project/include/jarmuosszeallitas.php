@@ -31,18 +31,19 @@
                         <label for="utvonal">Útvonal</label>
                         <textarea name="utvonal" id="utvonal" class="input-group"></textarea>
                         <button type="submit" class="btn btn-success mt-3">Beküldés</button>
-                        <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>
+                        
                     </div>
                     <input type="hidden" id="rejtettInput" name="szerelveny">
                 
                 </div>
                 <div class="row ml-3">
-                    <div id="vonat" onsubmit="vonatBetoltKuldesre()" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
+                    <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
                         
 
                     </div>
                 </div>
-                </form>   
+                </form> 
+                <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>  
             </div>
 
             </div>
@@ -157,7 +158,7 @@
             else
             {
                 elem.style.transform = "scaleX(-1)";
-                elem.dataset["forgatott"] = true;
+                elem.dataset.forgatott = true;
             }
 
 
@@ -178,6 +179,7 @@
         {
             obj.parentElement.removeChild(obj);
         }
+
         
             let form = document.getElementById("vonatAdatok")
 
@@ -186,7 +188,7 @@
 
                 let rejtettInput = document.getElementById("rejtettInput");
 
-                rejtettInput.value = vonat.innerHTML;
+                rejtettInput.value = vonat.innerHTML.trim();
 
             })
             //console.log(vonat);
@@ -196,17 +198,45 @@
 
     <?php
 
-        $file = fopen("include/osszeallitasok.txt","a+");
+        if ($_SERVER["REQUEST_METHOD"] === "POST")
+        {
+            
+            $file = fopen("include/osszeallitasok.txt","a+");
+
+            $vonatNev = "";
+            $vonatTipus = "";
+            $vonatSzam = 0;
+            $utvonal = "";
+            $szerelveny = "";
 
 
-            $vonatNev = $_POST["vonatNev"];
-            $vonatTipus = $_POST["vonatTipus"];
-            $vonatSzam = (int)$_POST["vonatSzam"];
-            $utvonal = $_POST["utvonal"];
-            $szerelveny = $_POST["szerelveny"];
-
-        $sor = "$vonatSzam;$vonatNev;$vonatTipus;$utvonal;$szerelveny\n";
+                if(isset($_POST["vonatNev"]))
+                {
+                    $vonatNev = $_POST["vonatNev"];
+                }
+                if(isset($_POST["vonatTipus"]))
+                {
+                    $vonatTipus = $_POST["vonatTipus"];
+                }
+                if(isset($_POST["vonatSzam"]))
+                {
+                    $vonatSzam = (int)$_POST["vonatSzam"];
+                }
+                if(isset($_POST["utvonal"]))
+                {
+                    $utvonal = $_POST["utvonal"];
+                }
+                if(isset($_POST["szerelveny"]))
+                {
+                    $szerelveny = $_POST["szerelveny"];
+                }
+            
+            $sor = "$vonatSzam;$vonatNev;$vonatTipus;$utvonal;$szerelveny\n";
         
-        fwrite($file,$sor);
-        fclose($file);
+            fwrite($file,$sor);
+            fclose($file);
+
+            header("Location: " . $_SERVER['PHP_SELF']);
+        }
+
     ?>
