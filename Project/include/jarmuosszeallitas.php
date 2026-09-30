@@ -37,7 +37,7 @@
                 
                 </div>
                 <div class="row ml-3">
-                    <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2" name="vonat">
+                    <div id="vonat" class="col-12 flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-4" name="vonat">
                         
 
                     </div>
@@ -152,12 +152,13 @@
         {
             if(elem.dataset.forgatott == "true")
             {
+                elem.classList.add("nemForgatott");
                 elem.style.transform = "scaleX(1)";
                 elem.dataset.forgatott = false;
             }
             else
             {
-                elem.style.transform = "scaleX(-1)";
+                elem.style = "transform: scaleX(-1);";
                 elem.dataset.forgatott = true;
             }
 
@@ -210,28 +211,28 @@
             $szerelveny = "";
 
 
-                if(isset($_POST["vonatNev"]))
+                if(isset($_POST["vonatNev"]) && htmlspecialchars($_POST["vonatNev"]))
                 {
                     $vonatNev = $_POST["vonatNev"];
                 }
-                if(isset($_POST["vonatTipus"]))
+                if(isset($_POST["vonatTipus"]) && htmlspecialchars($_POST["vonatTipus"]))
                 {
                     $vonatTipus = $_POST["vonatTipus"];
                 }
-                if(isset($_POST["vonatSzam"]))
+                if(isset($_POST["vonatSzam"]) && htmlspecialchars($_POST["vonatSzam"]))
                 {
                     $vonatSzam = (int)$_POST["vonatSzam"];
                 }
-                if(isset($_POST["utvonal"]))
+                if(isset($_POST["utvonal"]) && htmlspecialchars($_POST["utvonal"]))
                 {
                     $utvonal = $_POST["utvonal"];
                 }
-                if(isset($_POST["szerelveny"]))
+                if(isset($_POST["szerelveny"]) && htmlspecialchars($_POST["szerelveny"]))
                 {
                     $szerelveny = $_POST["szerelveny"];
                 }
             
-            $sor = "$vonatSzam;$vonatNev;$vonatTipus;$utvonal;$szerelveny\n";
+            $sor = "$vonatSzam\t$vonatNev\t$vonatTipus\t$utvonal\t$szerelveny\n";
         
             fwrite($file,$sor);
             fclose($file);

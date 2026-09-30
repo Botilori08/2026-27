@@ -10,7 +10,7 @@
         {
             $egyVonat = [];
 
-            $egyVonat = explode(";",$file[$i]);
+            $egyVonat = explode("\t",$file[$i]);
 
             $vonatok[] = $egyVonat;
         }
@@ -30,7 +30,7 @@
                     for($i = 0;$i < sizeof($vonatok);$i++)
                     {
                         echo '<div class="col-12 egyVonat">';
-                        echo '<div class="flex-nowrap d-flex overflow-scroll align-items-end mb-5 p-2 vonatHelye">';
+                        echo '<div class="flex-nowrap d-flex overflow-auto align-items-end mb-5 p-4 vonatHelye">';
                         echo $vonatok[$i][4];
                         echo "</div>";
                         echo '<div class="kartya">Itt lesz a kártya</div>';

@@ -23,6 +23,15 @@
             margin-left: 10px;
         }
 
+        .forgatott
+        {
+            transform: scaleX(-1);
+        }
+        .nemForgatott
+        {
+            transform: scaleX(1);
+        }
+
     </style>
 
 <body onload="betolt()">
