@@ -63,14 +63,14 @@
             .then(x => x.json())
             .then(y => 
                 {
-                    console.log(y)
+                    //console.log(y)
 
                     jarmuvek = y;
 
                     //console.log(jarmuvek)
 
                     jarmuvek.forEach((e,i) => {
-                        console.log(e);
+                        //console.log(e);
                         let nagyDoboz = document.createElement("div");
                         nagyDoboz.classList.add("col-12");
                         nagyDoboz.classList.add("border");
@@ -117,7 +117,7 @@
         function kivalaszt(obj)
         {
 
-            console.log(obj.children[0])
+            //console.log(obj.children[0])
             let kep = document.createElement("img")
             kep.src = obj.children[0].src
             kep.classList = obj.children[0].classList;
@@ -142,6 +142,8 @@
                 jarmuSzam++;
             }
 
+
+            src();
             
 
 
@@ -181,10 +183,32 @@
             obj.parentElement.removeChild(obj);
         }
 
+
+        function src()
+        {
+            let vonat = document.getElementById("vonat");
+
+            let jarmuvek = Array.from(vonat.children);
+
+            console.log(jarmuvek);
+
+            for(let i = 0;i < jarmuvek.length;i++)
+            {
+                    let src = jarmuvek[i].src.split("/");
+                    console.log();
+                    jarmuvek[i].src = "kepek/"+src[src.length-1];
+            }
+
+                
+
+        }
+
+
         
-            let form = document.getElementById("vonatAdatok")
+            let form = document.getElementById("vonatAdatok");
 
             form.addEventListener("submit",function(){
+                
                 let vonat = document.getElementById("vonat");
 
                 let rejtettInput = document.getElementById("rejtettInput");
@@ -198,6 +222,8 @@
     </script>
 
     <?php
+
+        
 
         if ($_SERVER["REQUEST_METHOD"] === "POST")
         {
@@ -230,6 +256,7 @@
                 if(isset($_POST["szerelveny"]) && htmlspecialchars($_POST["szerelveny"]))
                 {
                     $szerelveny = $_POST["szerelveny"];
+
                 }
             
             $sor = "$vonatSzam\t$vonatNev\t$vonatTipus\t$utvonal\t$szerelveny\n";
@@ -237,7 +264,7 @@
             fwrite($file,$sor);
             fclose($file);
 
-            header("Location: " . $_SERVER['PHP_SELF']);
+            
         }
 
     ?>

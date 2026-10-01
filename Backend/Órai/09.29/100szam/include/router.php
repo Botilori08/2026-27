@@ -6,7 +6,9 @@
         case 1:
         default:
             include("include/form.php");
-            $mainContent = form(szamGeneral());
+            feldolgozas();
+            $szamok = szamokBetolt();
+            $mainContent = form($szamok);
             break;
         case 2:
             include("include/tablazat.php");

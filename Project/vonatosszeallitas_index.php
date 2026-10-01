@@ -1,4 +1,7 @@
-<?php include("include/functions.php");?>
+
+<?php
+include("include/functions.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +65,9 @@
                     </div>
                 </nav>
                 <main class="mt-3">
-                    <?php require("include/vizsgal.php");?>
+                    <?php require("include/vizsgal.php");
+                    
+                    ?>
                 </main>
 
 
