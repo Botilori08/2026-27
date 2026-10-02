@@ -1,0 +1,74 @@
+[
+  {
+    "nev":"Dízelmozdonyok",
+    "kepek" : [
+        "408-b_gysev.gif",
+        "448-b.gif"
+         ]
+    },
+{
+    "nev":"Villanymozdonyok",
+    "kepek" : [
+    "430-b.gif",
+    "470-b.gif",
+    "470-501-a.gif",
+    "470-503-Z-b.gif",
+    "470-504-a.gif",
+    "470-505-a.gif",
+    "471-b.gif",
+    "193595-b.gif",
+    "193837-a.gif"
+]
+},
+
+{
+  "nev": "Első és másodosztályú kocsik",
+  "kepek": [
+    "Bmz-b.gif"
+    
+  ]
+},
+{
+    "nev": "Elsőosztályú kocsik",
+    "kepek": [
+    
+    "Ap-1033-b.gif",
+    "Ap-1067-b.gif"
+  ]
+},
+{
+  "nev": "Másodosztályú kocsik",
+  "kepek": [
+    "Bmz-b.gif",
+    "Bp-2033-b.gif",
+    "Bp-2033-m-b.gif",
+    "Bp-2067-b.gif",
+    "Bmpz-2176-b.gif"
+  ]
+},
+
+
+{
+  "nev":"Vezérlőkocsik",
+  "kepek":[
+    "Bdfmpz-8076-b.gif"
+
+  ]
+},
+{
+  "nev":"Motorkocsik/motorvonatok",
+  "kepek":[
+    
+    "247-b.gif",
+    "1446-b.gif",
+    "1446-m-a.gif",
+    "415-b.gif",
+    "435-5-b.gif",
+    "4746-b.gif",
+    "4746-310-b.gif"
+
+    
+  ]
+}
+
+]

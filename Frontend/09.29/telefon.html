@@ -26,14 +26,21 @@
 </head>
 <body onload="billentyuzetLetrehoz()">
     <div class="container">
-        <div class="col-12">
-            <div class="row text-white bg-dark" id="kijelzo">
-                
-            </div>
-            <div class="row" id="billentyuzet">
-                
-            </div>
+        <div class="row">
+        <div class="col-4">
+    
         </div>
+        <div class="col-3">
+            <div class="row text-white bg-dark display-4" id="kijelzo"></div>
+            <div class="row" id="billentyuzet"></div>
+            <div class="row" id="szamlaloHelye"></div>
+        </div>
+        <div class="col-4">
+            <div class="col-3">Hívás ideje:</div>
+            <div class="col-2" id="idoKijelzo">asd</div>
+        </div>
+        </div>
+
     </div>
 
     <script>
@@ -82,7 +89,9 @@
                 elem.classList.add("text-center");
                 elem.classList.add("border");
                 elem.classList.add("border-black");
+                elem.classList.add("rounded");
                 elem.classList.add("nyomogomb");
+                elem.classList.add("p-2");
                 
                 billentyuzet.appendChild(elem);
 
@@ -119,13 +128,43 @@
         {
             console.log("Letettem!");
 
+            let hivottSzam = document.getElementById("kijelzo").innerHTML;
+            
+            
+
             hivasVege = Date.now();
 
             //console.log(hivasVege - hivasKezdet);
+            //console.log(hivasHossza.toUTCString().split(" ")[4]);
 
             hivasHossza = new Date(hivasVege - hivasKezdet);
 
-            console.log(hivasHossza.toUTCTimeString());
+            const time = hivasHossza.toLocaleTimeString("en-GB",{
+                timeZone: 'UTC',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+            })
+
+            let hivasInfo = {"kezdet":new Date(hivasKezdet).toString(),
+                            "hivottSzam":hivottSzam,
+                            "hivasHossz":time}
+
+            console.log(hivasInfo);
+
+            document.getElementById("kijelzo").innerHTML = "";
+
+            let lista = JSON.parse(localStorage.getItem("lista")) ?? [];
+            lista.push(hivasInfo);
+            localStorage.setItem("lista",JSON.stringify(lista));
+
+            console.log(localStorage.getItem("lista"));
+
+            /*localStorage.setItem("hivasok");
+            let hivasok = localStorage.getItem("hivasok",JSON.parse("hivasok"));
+            hivasok.push({"telefonszam": hivottSzam,"hivasIdoTartam":hivasHossza.toUTCString().split(" ")[4]})
+            localStorage.setItem("hivasok",JSON.stringify("hivasok",JSON.stringify(hivasok)));*/
+
             
         }
 

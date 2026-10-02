@@ -1,12 +1,17 @@
 <div class="col-12">
         <div class="row mb-4">
-                <div class="col-2" id="kivalasztoLista">
+                <div class="col-3" id="kivalasztoListaMAV" >
 
                 </div>
+                <div class="col-3" id="kivalasztoListaGYSEV">
 
+                </div>
+                <div class="col-3" id="kivalasztoListaOEBB">
 
+                </div>
+                <div class="col-3" id="kivalasztoListaCD">
 
-
+                </div>
 
             </div>
             <div class="row ml-2 mr-2" id="adatokUrlap">
@@ -54,16 +59,26 @@
 
     <script>
 
-        let divekHelye = document.getElementById("kivalasztoLista")
+        
+
+        document.addEventListener("DOMContentLoaded", function() {
+            betolt("MAVforras.json", "kivalasztoListaMAV","MAV");
+            betolt("GYSEVforras.json", "kivalasztoListaGYSEV","GYSEV"); 
+        });
+
         let betoltott;
         let jarmuvek = [];
-        function betolt()
+        let url = "";
+
+        function betolt(fajlNev,divId,mappaNev)
         {
-            fetch("forras.json")
+            fetch(fajlNev)
             .then(x => x.json())
             .then(y => 
                 {
                     //console.log(y)
+
+                    let jarmuvekHelye = document.getElementById(divId);
 
                     jarmuvek = y;
 
@@ -95,7 +110,7 @@
                                 {
                                     img.dataset["vontatojarmu"] = true;
                                 }
-                                img.src = "kepek/"+kep;
+                                img.src = "kepek/"+mappaNev+"/"+kep;
                                 //img.classList.add("img-fluid");
                                 kepDoboz.appendChild(img);
                                 nagyDoboz.appendChild(kepDoboz);
@@ -103,7 +118,7 @@
                             }
                         )
                         
-                        divekHelye.appendChild(nagyDoboz);
+                        jarmuvekHelye.appendChild(nagyDoboz);
 
                     });
 
@@ -196,7 +211,7 @@
             {
                     let src = jarmuvek[i].src.split("/");
                     console.log();
-                    jarmuvek[i].src = "kepek/"+src[src.length-1];
+                    jarmuvek[i].src = "kepek/"+src[src.length-2]+"/"+src[src.length-1];
             }
 
                 

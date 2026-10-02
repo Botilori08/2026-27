@@ -37,7 +37,7 @@ include("include/functions.php");
 
     </style>
 
-<body onload="betolt()">
+<body>
     <div id="container-fluid">
         <header><h1 class="text-center">MÁV/GYSEV/ÖBB Vonatösszeállítás tervező</h1></header>
                 <?php 

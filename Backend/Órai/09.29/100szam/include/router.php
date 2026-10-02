@@ -13,15 +13,15 @@
         case 2:
             include("include/form.php");
             include("include/tablazat.php");
-            $mainContent = tablazat(szamokBetolt());
+            $szamok = szamokBetolt(false);
+            $mainContent = tablazat($szamok);
             
             break;
         case 3:
             include("include/form.php");
             include("include/tablazat.php");
-            $szamok = szamokBetolt();
-            sort($szamok);
-            $mainContent = tablazat($szamok);
+            $szamok = szamokBetolt(false);
+            $mainContent = tablazat($szamok,true);
             break;
 
     }

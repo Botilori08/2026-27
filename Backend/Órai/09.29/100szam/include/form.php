@@ -89,7 +89,7 @@
         
     }
 
-    function szamokBetolt()
+    function szamokBetolt($generalj = true)
     {
         if(file_exists("save.txt"))
         {
@@ -108,9 +108,13 @@
 
             //retrun file("save.txt");
         }
-        else
+        else if($generalj)
         {
             return szamGeneral();
+        }
+        else
+        {
+            return false;
         }
     }
 
