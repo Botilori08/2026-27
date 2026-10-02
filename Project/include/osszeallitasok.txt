@@ -1,2 +1,2 @@
-0				<img src="kepek/408-3-b.gif" class="img-fluid"><img src="kepek/BDbh-8228-b.gif" class="img-fluid"><img src="kepek/BDbh-8228-b.gif" class="img-fluid">
-0				<img src="kepek/815-a.gif" class="img-fluid">
+7654	Random kerékpáros vonat	Sz	Budapest - Somogyszob	<img src="kepek/490-b.gif" class="img-fluid"><img src="kepek/Bdmpee-8405-m2025-b.gif" class="img-fluid"><img src="kepek/Bdmpee-8405-m2025-b.gif" class="img-fluid"><img src="kepek/Bmx-2205-b.gif" class="img-fluid"><img src="kepek/Bpmee_2205_m-a.gif" class="img-fluid">
+826	Somogy	IC	Budapest - Gyékényes	<img src="kepek/BVmot-a.gif" class="img-fluid"><img src="kepek/Bmxz-a.gif" class="img-fluid"><img src="kepek/Bmxz-a.gif" class="img-fluid"><img src="kepek/Bmxtz-a.gif" class="img-fluid">

@@ -65,9 +65,7 @@ include("include/functions.php");
                     </div>
                 </nav>
                 <main class="mt-3">
-                    <?php require("include/vizsgal.php");
-                    
-                    ?>
+                    <?php require("include/vizsgal.php");?>
                 </main>
 
 

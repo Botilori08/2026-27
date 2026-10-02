@@ -33,7 +33,7 @@
                         echo '<div class="flex-nowrap d-flex overflow-auto align-items-end mb-5 p-4 vonatHelye">';
                         echo $vonatok[$i][4];
                         echo "</div>";
-                        echo '<div class="kartya">Itt lesz a kártya</div>';
+                        echo "<div class='kartya'>".$vonatok[$i][2]."\t".$vonatok[$i][0] ."\t".$vonatok[$i][1]."</div>";
                         echo "</div>";
 
                     }

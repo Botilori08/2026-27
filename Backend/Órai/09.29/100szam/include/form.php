@@ -4,7 +4,7 @@
 
     function form($szamok)
     {
-        var_dump($szamok);
+        //var_dump($szamok);
         $szoveg = "";
         $szoveg .= "<form action=\"". uri(1)."\" method=\"post\">";
         $szoveg .= '<div class="row">';
@@ -21,7 +21,7 @@
                 $szoveg .= '
                 <div class="col-1">
                     <label for="szam'. $i .'">'.($i+1).'</label>
-                    <input type="number" value="'.$szamok[$i].'" min="0" max="1000" name="szam'.$i.'" id="szam'.$i.'" class="from-control">
+                    <input type="number" value="'.$szamok[$i].'" min="0" max="1000" name="szam'.$i.'" id="szam'.$i.'" class="form-control">
                 </div>';
             
             if($i%10===9)
@@ -99,11 +99,11 @@
 
             while(!feof($f))
             {
-                $vissza[] = fgets($f);
+                $vissza[] = trim(fgets($f));
             }
 
             fclose($f);
-
+            array_pop($vissza);
             return $vissza;
 
             //retrun file("save.txt");
