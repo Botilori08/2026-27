@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+    <style>
+
+        .lampa
+        {
+            height: 200px;
+        }
+
+    </style>
+
+</head> 
+<body>
+    <div class="container">
+            <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2 border border-dark m-auto bg-dark p-2">
+                        <div class="pirosLampa rounded-circle bg-secondary lampa" id="piros"></div>
+                        <div class="sargaLampa rounded-circle bg-secondary lampa mt-2" id="sarga"></div>
+                        <div class="zoldLampa rounded-circle bg-secondary lampa mt-2" id="zold"></div>
+                    </div>
+                    <div class="col-5"></div>
+            </div>
+
+            </div>
+
+
+    <script>
+
+        let piros = document.getElementById("piros");
+        let sarga = document.getElementById("sarga");
+        let zold = document.getElementById("zold");
+
+        let idozito = 0;
+
+        //kiinduló helyzet csak a piros lámpa világít
+        //utána kivillan a sárga is
+        //utána a kettő elalszik megjelenik a zöld
+        //utána csak a zöld
+        //utána csak a sárga
+        //utána csak a piros 
+        //előről
+
+        
+        function csakApirosvilagit()
+        {
+            piros.classList.add("bg-danger");
+        }
+        function pirosEssarga()
+        {
+            sarga.classList.remove("bg-secondary");
+            sarga.classList.add("bg-warning");
+
+        }
+        function csakaZold()
+        {
+            piros.classList.remove("bg-danger");
+            piros.classList.add("bg-secondary");
+            sarga.classList.remove("bg-warning");
+            sarga.classList.add("bg-secondary");
+
+            zold.classList.remove("bg-secondary");
+            zold.classList.add("bg-success");
+        }
+        function csakaSarga()
+        {
+
+            zold.classList.remove("bg-success");
+            zold.classList.add("bg-secondary");
+            sarga.classList.remove("bg-secondary");
+            sarga.classList.add("bg-warning");
+
+        }
+        function ujraPiros()
+        {
+            piros.classList.remove("bg-secondary");
+            piros.classList.add("bg-danger");
+            sarga.classList.remove("bg-warning");
+            sarga.classList.add("bg-secondary");
+
+        }
+
+
+        setInterval(function(){
+            if(idozito == 5)
+            {
+                csakApirosvilagit();
+            }
+            if(idozito == 10)
+            {
+                pirosEssarga();
+            }
+            if(idozito == 15)
+            {
+                csakaZold();
+            }
+            if(idozito == 20)
+            {
+                csakaSarga();
+            }
+            if(idozito == 25)
+            {
+                ujraPiros();
+                idozito=0;
+            }
+
+            idozito++;
+        
+        },1000)
+
+
+
+        
+        
+        
+        
+
+        
+
+
+    </script>
+</body>
+</html>

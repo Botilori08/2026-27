@@ -56,7 +56,10 @@
   "Bmz-2190-1-2019-b.gif",
   "Bmpz-l-2173-0-2019-b.gif",
   "Bmpz-l-2173-8-2019-b.gif",
-  "Bmpvz-l-8473-a.gif"
+  "Bmpvz-l-8473-a.gif",
+  "Bmpz-dl-b.gif",
+  "Bmpz-dl-cj-b.gif",
+  "Bmpz-dl-CAT2-b.gif"
 
   ]
 },
@@ -94,73 +97,63 @@
 {
   "nev":"Railjet",
   "kepek":[
+    "Bmpz-2290-1-rj-2016-b.gif",
+    "ARbmpz-8590-5-rj-2016-b.gif",
+    "Ampz-1990-6-rj-2016-b.gif",
+    "Bmpz-2290-3-4-rj-2016-b.gif",
+    "Bmpz-2290-3-rj-2019-b.gif",
+    "Bmpz-2290-2-rj-2019-b.gif",
+    "Ampz-1990-6-rj-44-b.gif",
+    "ARbmpz-8590-5-rj-44-b.gif",
+    "Bmpz-2290-1-rj-44-b.gif",
+    "Bmpz-2290-2-rj-44-b.gif",
+    "Bmpz-2290-4-rj-44-b.gif"
   ]
 },
 {
   "nev":"Étkezőkocsik",
   "kepek":[
+    "WRmz-8890-don-b.gif",
+    "WRmz-8891-don-b.gif"
   ]
 },
 
 {
   "nev":"Vezérlőkocsik",
   "kepek":[
+    "Bmpz-s-8073-2019-b.gif",
+    "Bbfmpz-cj-b.gif",
+    "Afmpz-8090-7-rj-2019-b.gif",
+    "Afmpz-8090-752-rj-b.gif",
+    "Afmpz-8090-7-rj-44-b.gif",
+    "Bfmpz-8091-rj-b.gif",
+    "Bfmpz-8091-nj-b.gif"
   ]
 },
 {
   "nev":"Motorkocsik/motorvonatok",
   "kepek":[
-
+    "5047-a.gif",
+    "5047-kmb-a.gif",
+    "5047-sc-a.gif",
+    "5022-cj-a.gif",
+    "4020-sc-b.gif",
+    "4020-b.gif",
+    "4023-cj-b.gif",
+    "4024-cj-b.gif",
+    "4024-cj-stmk-a.gif",
+    "4024-ktn-b.gif",
+    "4024-cj-oo-b.gif",
+    "4734-b.gif",
+    "4736-b.gif",
+    "4744-b.gif",
+    "4746-b.gif",
+    "4748-b.gif",
+    "4010.png",
+    "4110.png",
+    "4748-t-b.gif"
     
   ]
-},
-{
-  "nev":"Betétkocsik",
-  "kepek":[
-    "Bmx-2105-b.gif",
-    "Bmx-2205-b.gif",
-    "Bpmee_2205_m-a.gif",
-    "Bmxz-a.gif",
-    "Amxz-a.gif"
-    
-  ]
-},
-{
-    "nev":"MRT nosztalgiamozdonyok/ motorkocsik",
-    "kepek" : [
-]
-},
-{
-    "nev":"MRT kocsik",
-    "kepek" : [
-  "AB-089-a.gif",
-  "AB-305-a.gif",
-  "AB-630-a.gif",
-  "B-821-a.gif",
-  "Bp-a.gif",
-  "Salon-Istropolitan-a.gif",
-  "SR-404-a.gif",
-  "WL-361-a.gif",
-  "WL-362-a.gif",
-  "WLDsm-a.gif",
-  "WLm-b.gif",
-  "WLmee-b.gif",
-  "WLS-051-a.gif",
-  "WLS-053-a.gif",
-  "WR-252-a.gif",
-  "WR-347-a.gif",
-  "WR-4252-a.gif",
-  "WRm-004_2018-a.gif",
-  "WRm-012-a.gif",
-  "WRm-027-a.gif",
-  "WRm-a.gif",
-  "WSRmee-a.gif",
-  "MRT-Apee-a.gif",
-  "MRT-Bpee-a.gif",
-  "BRpee005-a.gif",
-  "BRpee-a.gif",
-  "VFK-a.gif"
-]
 }
 
 ]

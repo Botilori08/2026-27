@@ -1,0 +1,6 @@
+3 lapos weboldal
+menüvel
+
+első egy főoldal: szöveg, kép
+második: mellékoldal
+harmadik: űrlap név, email, hosszabb üzenet
