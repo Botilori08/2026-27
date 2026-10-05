@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 </form> 
-                <button class="btn btn-danger mt-3" name="torles" onclick="torles()">Törlés</button>  
+                <button class="btn btn-danger m-3" name="torles" onclick="torles()">Törlés</button>  
             </div>
 
             </div>
@@ -62,15 +62,16 @@
         
 
         document.addEventListener("DOMContentLoaded", function() {
-            betolt("MAVforras.json", "kivalasztoListaMAV","MAV");
-            betolt("GYSEVforras.json", "kivalasztoListaGYSEV","GYSEV"); 
+            betolt("MAVforras.json", "kivalasztoListaMAV","MAV","MÁV.png");
+            betolt("GYSEVforras.json", "kivalasztoListaGYSEV","GYSEV","GYSEV_logo.svg.webp");
+            betolt("OEBBforras.json", "kivalasztoListaOEBB","OEBB","Logo_ÖBB.svg.webp"); 
         });
 
         let betoltott;
         let jarmuvek = [];
         let url = "";
 
-        function betolt(fajlNev,divId,mappaNev)
+        function betolt(fajlNev,divId,mappaNev,logo)
         {
             fetch(fajlNev)
             .then(x => x.json())
@@ -82,15 +83,45 @@
 
                     jarmuvek = y;
 
+
+                    let tarsasagDoboz = document.createElement("details")
+                    tarsasagDoboz.className = "border border-black rounded p-2"
+                    let cim = document.createElement("summary");
+                    let tarsasagLogo = document.createElement("img");
+                    tarsasagLogo.src = logo;
+                    tarsasagLogo.className = "logo";
+                    cim.appendChild(tarsasagLogo)
+                    tarsasagDoboz.appendChild(cim)
+
+                    
+
                     //console.log(jarmuvek)
 
                     jarmuvek.forEach((e,i) => {
                         //console.log(e);
+                        
+                        
                         let nagyDoboz = document.createElement("div");
                         nagyDoboz.classList.add("col-12");
                         nagyDoboz.classList.add("border");
-                        nagyDoboz.classList.add("border-black")
-                        nagyDoboz.innerHTML = e.nev;
+                        nagyDoboz.classList.add("border-black");
+                        nagyDoboz.classList.add("rounded");
+                        nagyDoboz.classList.add("mb-2")
+                        nagyDoboz.classList.add("p-2")
+
+                        let reszletek = document.createElement("details");
+                        let cim = document.createElement("summary");
+                        cim.innerHTML = "<h4>"+e.nev+"</h4>";
+
+                        reszletek.appendChild(cim);
+                        nagyDoboz.appendChild(reszletek);
+
+                        let nagyKepesdiv = document.createElement("div");
+                        nagyKepesdiv.classList.add("col-12");
+
+
+
+                         
 
                         e.kepek.forEach(kep => 
                             {
@@ -98,8 +129,8 @@
                                 kepDoboz.addEventListener("click",function() {kivalaszt(this)})
                                 kepDoboz.classList.add("col-12")
                                 kepDoboz.classList.add("kepesDoboz")
-                                kepDoboz.classList.add("border");
-                                kepDoboz.classList.add("border-black")
+                                //kepDoboz.classList.add("border");
+                                //kepDoboz.classList.add("border-black")
                                 //kepDoboz.classList.add("overflow-x-auto")
                                 kepDoboz.classList.add("d-flex")
                                 kepDoboz.classList.add("flex-nowrap")
@@ -113,12 +144,14 @@
                                 img.src = "kepek/"+mappaNev+"/"+kep;
                                 //img.classList.add("img-fluid");
                                 kepDoboz.appendChild(img);
-                                nagyDoboz.appendChild(kepDoboz);
+                                nagyKepesdiv.appendChild(kepDoboz);
                                 
                             }
                         )
-                        
-                        jarmuvekHelye.appendChild(nagyDoboz);
+                        reszletek.appendChild(nagyKepesdiv);
+                        nagyDoboz.appendChild(reszletek);
+                        tarsasagDoboz.appendChild(nagyDoboz);
+                        jarmuvekHelye.appendChild(tarsasagDoboz);
 
                     });
 

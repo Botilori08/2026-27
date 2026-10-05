@@ -1,0 +1,166 @@
+[
+  {
+    "nev":"Dízelmozdonyok",
+    "kepek" : [
+        "2016-a.gif"
+         ]
+    },
+{
+    "nev":"Villanymozdonyok",
+    "kepek" : [
+    "1016-020-b.gif",
+  "1016-a.gif",
+  "1116-CAT2-b.gif",
+  "1116-a.gif",
+  "1116-159-sparda-a.gif",
+  "1116-182-a.gif",
+  "1116-208-a.gif",
+  "1116-216-a.gif",
+  "1116-225-a.gif",
+  "1116-231-a.gif",
+  "1116-244-a.gif",
+  "1116-247-a.gif",
+  "1116-276-2025-a.gif",
+  "1116-rch-a.gif",
+  "RJ-1116-2-a.gif",
+  "1116-VV-a.gif",
+  "1142-2024a-a.gif",
+  "1144-2015-a.gif",
+  "1044-c3-a.gif",
+  "1144-a.gif",
+  "1216-2024-a.gif",
+  "1216-it-a.gif",
+  "1216-025-Weltrekord-a.gif",
+  "1216-rj2-b.gif",
+  "1293-b.gif",
+  "1116-nj-a.gif",
+  "1216-nj-a.gif",
+  "1293-nj-a.gif"
+]
+},
+{
+    "nev": "Elsőosztályú kocsik",
+    "kepek": [
+    "ADmpsz-f-b.gif",
+    "Amz73-1991-5-2019-b.gif"
+  ]
+},
+{
+  "nev": "Másodosztályú kocsik",
+  "kepek": [
+    "Bmpz-2094-b.gif",
+  "Bmpz-2991-1-2019-b.gif",
+  "Bmpz-2991-2019-b.gif",
+  "Bmpz-2991-micotra-b.gif",
+  "Bmz73-2991-5-b.gif",
+  "Bmz-2190-1-2019-b.gif",
+  "Bmpz-l-2173-0-2019-b.gif",
+  "Bmpz-l-2173-8-2019-b.gif",
+  "Bmpvz-l-8473-a.gif"
+
+  ]
+},
+{
+  "nev":"Poggyász, kerékpárszállító és speciális kocsik",
+  "kepek":[
+      "Dmsz-micotra-b.gif",
+      "Gabkqss-x-502-Carinthija-b.gif",
+      "Gabkqss-x-a.gif",
+      "Gbkks-vx-a.gif",
+      "Saadkms-q-b.gif",
+      "Saadkms-q-Rampenwagen-b.gif",
+      "ASTB_Auffahrwagen-b.gif",
+      "DDm-a.gif"
+    
+
+  ]
+},
+{
+  "nev":"Nightjet",
+  "kepek":[
+    
+"Bbcmvz-5991-3-nj-b.gif",
+  "Bbmvz-2891-nj-b.gif",
+  "Bcmz-5990-nj-b.gif",
+  "Bcmz-5991-1-nj-b.gif",
+  "Bcmz-5991-2-nj-b.gif",
+  "Bmz73-2991-5-nj-b.gif",
+  "Bmz-2191-1-nj2-b.gif",
+  "Bmz-2191-1-nj-b.gif",
+  "WLABmz-7290-nj-b.gif",
+  "WLABmz-7290-nj2-b.gif"
+  ]
+},
+{
+  "nev":"Railjet",
+  "kepek":[
+  ]
+},
+{
+  "nev":"Étkezőkocsik",
+  "kepek":[
+  ]
+},
+
+{
+  "nev":"Vezérlőkocsik",
+  "kepek":[
+  ]
+},
+{
+  "nev":"Motorkocsik/motorvonatok",
+  "kepek":[
+
+    
+  ]
+},
+{
+  "nev":"Betétkocsik",
+  "kepek":[
+    "Bmx-2105-b.gif",
+    "Bmx-2205-b.gif",
+    "Bpmee_2205_m-a.gif",
+    "Bmxz-a.gif",
+    "Amxz-a.gif"
+    
+  ]
+},
+{
+    "nev":"MRT nosztalgiamozdonyok/ motorkocsik",
+    "kepek" : [
+]
+},
+{
+    "nev":"MRT kocsik",
+    "kepek" : [
+  "AB-089-a.gif",
+  "AB-305-a.gif",
+  "AB-630-a.gif",
+  "B-821-a.gif",
+  "Bp-a.gif",
+  "Salon-Istropolitan-a.gif",
+  "SR-404-a.gif",
+  "WL-361-a.gif",
+  "WL-362-a.gif",
+  "WLDsm-a.gif",
+  "WLm-b.gif",
+  "WLmee-b.gif",
+  "WLS-051-a.gif",
+  "WLS-053-a.gif",
+  "WR-252-a.gif",
+  "WR-347-a.gif",
+  "WR-4252-a.gif",
+  "WRm-004_2018-a.gif",
+  "WRm-012-a.gif",
+  "WRm-027-a.gif",
+  "WRm-a.gif",
+  "WSRmee-a.gif",
+  "MRT-Apee-a.gif",
+  "MRT-Bpee-a.gif",
+  "BRpee005-a.gif",
+  "BRpee-a.gif",
+  "VFK-a.gif"
+]
+}
+
+]
