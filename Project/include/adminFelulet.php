@@ -38,7 +38,8 @@
     tarsasagKivalaszt.addEventListener("change",function() {jsonMegszerez(this)});
 
     let jsonNeve = "";
-    let optionNevek = []
+    let optionNevek = [];
+    
     function jsonMegszerez(obj)
     {
         jsonNeve = obj.value+"forras.json";
@@ -46,7 +47,7 @@
         let forras = []
 
         let jarmuTipuskivalaszt = document.getElementById("jarmuTipuskivalaszt");
-
+        
 
         fetch(jsonNeve)
         .then(x => x.json())
@@ -55,12 +56,14 @@
                 forras = y;
 
                 console.log(forras);
-
+                optionNevek = [];
                 forras.forEach(e => {
                     optionNevek.push(e.nev);
                 });
 
                 console.log(optionNevek);
+
+                jarmuTipuskivalaszt.innerHTML = "";
 
                 optionNevek.forEach(e =>
                 {

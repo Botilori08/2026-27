@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="bg-dark text-white p-2"><h2>Random szövegek mentése localStorageba</h2></header>
+        <div class="row">
+            <div class="col-6">
+                <label for="felsorolas">Adj meg valamit</label>
+                <input type="text" id="felsorolas" class="form-control">
+                <button type="button" class="btn btn-primary" onclick="kuldes()">Küldés</button>
+            </div>
+            <div class="col-6" id="megjelenit"></div>
+        </div>
+        <footer class="bg-dark text-white p-2">Ez itten bizony egy footer!</footer>
+    </div>
+    <script>
+
+        betolt();
+        function kuldes()
+        {
+            let szoveg = document.getElementById("felsorolas");
+
+            let szovegek = JSON.parse(localStorage.getItem("szovegek")) ?? [];
+            szovegek.push(szoveg.value);
+            localStorage.setItem("szovegek",JSON.stringify(szovegek));
+            betolt();
+        }
+
+        function betolt()
+        {
+            document.getElementById("megjelenit").innerHTML = "";
+            let betoltott = JSON.parse(localStorage.getItem("szovegek"));
+
+            let lista = document.createElement("ul");
+
+            
+            
+            betoltott.forEach(e => {
+                let li = document.createElement("li")
+                li.innerHTML = e;
+                lista.appendChild(li);
+            });
+
+            document.getElementById("megjelenit").appendChild(lista);
+        }
+
+    </script>
+</body>
+</html>

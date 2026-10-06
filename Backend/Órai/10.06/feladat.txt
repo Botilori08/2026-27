@@ -1,0 +1,7 @@
+2 lapos weboldal
+
+1. oldal: Űrlap: név születési dátum becenév
+
+2. oldal becenév, név, dátum, táblázatos forma
+
+Bonus: lehessen őket rendezni bármi szerint, csökkenő, növekvő sorrend is
