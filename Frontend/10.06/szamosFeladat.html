@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+	<style>
+		.billentyu
+		{
+			height: 60px;
+			text-align: center;
+		}
+
+		#megjelenit
+		{
+			height: 90px;
+		}
+
+
+	</style>
+
+</head>
+<body onload="feltolt()">
+    <div class="container-fluid">
+		<div class="col-12">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-10">
+				<div class="row display-2" id="megjelenit"></div>
+			</div>
+			<div class="col-1"></div>
+        </div>
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-10">
+				<div class="row" id="gombok"></div>
+				<div class="row"><div class="col-12"><button type="button" class="btn btn-primary" onclick="kuldes()">Küldés</button></div></div>
+			</div>
+			<div class="col-1"></div>
+        </div>
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-10">
+				<div class="row">
+					<div class="col-12" id="szamokesOsszeguk"></div>
+				</div>
+			</div>
+			<div class="col-1"></div>
+        </div>
+		</div>
+
+    </div>
+
+
+	<script>
+
+		let megjelenit = document.getElementById("megjelenit");
+
+		let gombok = document.getElementById("gombok");
+
+		function feltolt()
+		{
+			for(let i = 0;i < 10;i++)
+			{
+				let gomb = document.createElement("div");
+				gomb.innerHTML = i;
+				gomb.className = "bg-secondary billentyu col-1 m-2";
+				gomb.addEventListener("click",function(){
+					megjelenites(this);
+				})
+				gombok.appendChild(gomb);
+			}
+			
+		}
+
+		function megjelenites(obj)
+		{
+			megjelenit.innerHTML += obj.innerHTML;
+		}
+
+
+		function kuldes()
+		{
+			
+
+			let szam = parseInt(document.getElementById("megjelenit").innerHTML);
+
+			document.getElementById("megjelenit").innerHTML = "";
+
+			
+			let szamokesOsszeguk = document.getElementById("szamokesOsszeguk");
+			szamokesOsszeguk.innerHTML = "";
+
+			let szamok = JSON.parse(localStorage.getItem("szamok")) ?? [];
+			szamok.push(szam);
+			console.log(szamok);
+			localStorage.setItem("szamok",JSON.stringify(szamok));
+
+
+
+			szamok = JSON.parse(localStorage.getItem("szamok"));
+
+			let ul = document.createElement("ul");
+			let osszeg = 0;
+			for(let i = 0;i < szamok.length;i++)
+			{
+				let li = document.createElement("li");
+				li.innerHTML = szamok[i];
+				ul.appendChild(li);
+				osszeg+= szamok[i];
+			}
+
+			szamokesOsszeguk.appendChild(ul);
+			szamokesOsszeguk.innerHTML += `<span>A számok összege: ${osszeg}</span>`;
+
+		}
+
+		
+
+
+
+	</script>
+</body>
+</html>

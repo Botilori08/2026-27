@@ -1,3 +1,2 @@
-<?php
-    echo "<h1>Itt lesz az admin felület</h1>"
-?>
+<h1>Admin felület</h1>
+<input type="text" class="form-control">
