@@ -132,11 +132,13 @@
                                 //kepDoboz.classList.add("border");
                                 //kepDoboz.classList.add("border-black")
                                 //kepDoboz.classList.add("overflow-x-auto")
-                                kepDoboz.classList.add("d-flex")
-                                kepDoboz.classList.add("flex-nowrap")
-                                kepDoboz.classList.add("align-items-end")
+                                //kepDoboz.classList.add("d-flex")
+                                //kepDoboz.classList.add("flex-nowrap")
+                                //kepDoboz.classList.add("align-items-end")
+                                kepDoboz.classList.add("overflow-scroll")
+                                kepDoboz.classList.add("p-3")
                                 let img = document.createElement("img")
-                                img.classList.add("img-fluid")
+                                //img.classList.add("img-fluid")
                                 if(e.nev.includes("mozdony") || e.nev == "Motorkocsik/motorvonatok" || e.nev == "Vezérlőkocsik")
                                 {
                                     img.dataset["vontatojarmu"] = true;
