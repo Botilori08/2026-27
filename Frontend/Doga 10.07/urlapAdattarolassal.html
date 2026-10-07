@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Űrlap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="bg-dark text-white p-2"><h1>Űrlap</h1></header>
+        <div class="row">
+            <div class="col-6" id="urlap">
+                <h2>Adatok megadása</h2>
+                <label for="nev">Név</label>
+                <input type="text" id="nev" class="form-control">
+                <label for="szuletesiDatum">Születési dátum</label>
+                <input type="date" id="szuletesiDatum" class="form-control">
+                <button type="button" class="btn btn-secondary mt-2" onclick="kuldes()">Küldés</button>
+            </div>
+            <div class="col-6" id="tablazathelye"></div>
+        </div>
+        <footer class="bg-dark text-white p-2 mt-5">Lábléc</footer>
+    </div>
+
+    <script>
+
+        
+
+        let sorszam = 1;
+        betolt();
+
+        function kuldes()
+        {
+
+            let nev = document.getElementById("nev").value;
+            let szuletesiDatum = document.getElementById("szuletesiDatum").value;
+
+            let adat = {"sorszam":sorszam,"nev":nev,"szuletesiDatum":szuletesiDatum}
+
+            let adatok = JSON.parse(localStorage.getItem("adatok")) ?? [];
+            adatok.push(adat);
+            localStorage.setItem("adatok",JSON.stringify(adatok));
+            sorszam++;
+            betolt();
+
+            
+        }
+
+        function betolt()
+        {
+
+            let adatok = JSON.parse(localStorage.getItem("adatok"));
+
+
+            adatok.sort((a,b) => 
+            {
+                const A = a.nev.toUpperCase();
+                const B = b.nev.toUpperCase();
+
+                if(A < B)
+                {
+                    return -1;
+                }
+                
+                if(A > B)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        )
+            adatok.sort(e => e.nev);
+
+            if(sorszam = 1)
+            {
+                sorszam = 1
+            }
+            else
+            {
+                sorszam = adatok[adatok.length -1].sorszam;
+            }
+            console.log(adatok);
+
+            //<table class="table-striped"><thead class=""></thead><tbody class="tablazat"></tbody></table>
+
+            let tablazathelye = document.getElementById("tablazathelye");
+            tablazathelye.innerHTML = "";
+            let tablazat = document.createElement("table");
+            tablazat.className = "table table-striped";
+            let thead = document.createElement("thead");
+            let tr = document.createElement("tr");
+            let th = document.createElement("th");
+            th.innerHTML = "";
+            tr.appendChild(th);
+            th = document.createElement("th");
+            th.innerHTML = "Név";
+
+            let gomb = document.createElement("button");
+            gomb.addEventListener("click",function()
+            {
+                rendezNevszerint(this)
+            })
+            gomb.innerHTML = "Rendezés nevek szerint";
+            gomb.className = "btn btn-secondary ml-1";
+            th.appendChild(gomb)
+
+            tr.appendChild(th);
+            th = document.createElement("th");
+            th.innerHTML = "Születési dátum";
+            tr.appendChild(th);
+            thead.appendChild(tr);
+            tablazat.appendChild(thead);
+
+            
+
+            let tbody = document.createElement("tbody");
+
+            adatok.forEach((e,i) => {
+                tr =  document.createElement("tr");
+                th = document.createElement("th");
+                th.scope = "row";
+                th.innerHTML = i+1;
+                tr.appendChild(th);
+                let td = document.createElement("td");
+                td.innerHTML = e.nev;
+                tr.appendChild(td);
+                td = document.createElement("td");
+                td.innerHTML = e.szuletesiDatum;
+                tr.appendChild(td);
+                td = document.createElement("td");
+                let button = document.createElement("button");
+                button.innerHTML = "Töröl";
+                button.className = "btn btn-danger"
+                button.addEventListener("click",function()
+                {
+                    sorTorol(this,i)
+                })
+                td.appendChild(button);
+                tr.appendChild(td);
+                tbody.appendChild(tr);
+
+            });
+
+            tablazat.appendChild(tbody);
+
+            tablazathelye.appendChild(tablazat);
+            
+            
+            
+
+
+
+        }
+
+        function sorTorol(obj,eltavolitandoElem)
+        {
+            let tr = obj.parentElement.parentElement;
+            console.log(tr)
+            tr.parentElement.removeChild(tr);
+
+            let adatok = JSON.parse(localStorage.getItem("adatok"))
+            console.log(eltavolitandoElem);
+            adatok = adatok.splice(eltavolitandoElem,1);
+            localStorage.setItem("adatok",JSON.stringify(adatok))
+
+            betolt();
+        }
+
+    </script>
+</body>
+</html>

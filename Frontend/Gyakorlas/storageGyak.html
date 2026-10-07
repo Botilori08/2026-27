@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <label for="nev">Név</label>
+                <input type="text" id="nev" class="form-control">
+                <label for="telefonszam">Telefonszám</label>
+                <input type="tel" id="telefonszam" class="form-control">
+                <button type="button" onclick="kuldes()" class="btn btn-success mt-2">Beküldés</button>
+                <div id="hibauzenet" class="text-danger"></div>
+            </div>
+            <div class="col-6" id="tablazatHelye">
+
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+
+        tablazatKeszit();
+
+        let adatok = [];
+
+        function kuldes()
+        {
+            document.getElementById("hibauzenet").innerHTML = "";
+            let nev = document.getElementById("nev").value;
+            let telefonszam = document.getElementById("telefonszam").value;
+
+            
+
+            if(nev == "" || telefonszam == "")
+            {
+                document.getElementById("hibauzenet").innerHTML = "Nem adtál meg adatot!";
+            }
+            else
+            {
+                document.getElementById("hibauzenet").innerHTML = "";
+                mentStorageba({"nev":nev,"telefon":telefonszam});
+            }
+
+        }
+
+        function mentStorageba(adatAmitmentsen)
+        {
+            let adatok = JSON.parse(localStorage.getItem("adatok")) ?? [];
+            console.log(adatok);
+            adatok.push(adatAmitmentsen);
+            localStorage.setItem("adatok",JSON.stringify(adatok));
+            tablazatKeszit();
+        }
+
+        function tablazatKeszit()
+        {
+            document.getElementById("tablazatHelye").innerHTML = "";
+            
+            let tartalom = JSON.parse(localStorage.getItem("adatok"));
+            let tabla = document.createElement("table");
+            tabla.classList.add("table");
+            let tr = document.createElement("tr")
+            let th = document.createElement("th")
+            //th.scope = "col";
+            th.innerHTML = "Név";
+            tr.appendChild(th);
+            th = document.createElement("th")
+            th.innerHTML = "Telefonszám";
+            tr.appendChild(th);
+
+            tabla.appendChild(tr);
+
+            for(let i = 0;i < tartalom.length;i++)
+            {
+                let tr = document.createElement("tr")
+                let cella = document.createElement("td")
+                cella.innerHTML = tartalom[i].nev;
+                tr.appendChild(cella);
+                cella = document.createElement("td")
+                cella.innerHTML = tartalom[i].telefon;
+                tr.appendChild(cella);
+                tabla.appendChild(tr);
+                
+            }
+
+            document.getElementById("tablazatHelye").appendChild(tabla);
+
+        }
+
+    </script>
+</body>
+</html>
