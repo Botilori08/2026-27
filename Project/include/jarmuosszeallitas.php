@@ -314,6 +314,9 @@
             fwrite($file,$sor);
             fclose($file);
 
+            header("Location: ".uri(1));
+            exit;
+
             
         }
 
