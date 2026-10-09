@@ -85,7 +85,7 @@
 
 
                     let tarsasagDoboz = document.createElement("details")
-                    tarsasagDoboz.className = "border border-black rounded p-2"
+                    tarsasagDoboz.className = "border border-black rounded p-3"
                     let cim = document.createElement("summary");
                     let tarsasagLogo = document.createElement("img");
                     tarsasagLogo.src = logo;
@@ -120,7 +120,7 @@
                         nagyKepesdiv.classList.add("col-12");
 
 
-
+                        e.kepek.sort();
                          
 
                         e.kepek.forEach(kep => 

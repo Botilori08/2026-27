@@ -5,7 +5,7 @@
             <form action="<?php echo uri(3);?>" method="post" enctype="multipart/form-data">
             <label>Vasúttársaság</label>
             <select name="kivalaszt" id="tarsasagKivalaszt" class="form-control">
-                <option value="MAV">MÁV</option>
+                <option value="MAV" default>MÁV</option>
                 <option value="GYSEV">GYSEV</option>
                 <option value="OEBB">ÖBB</option>
             </select>
@@ -110,33 +110,54 @@
         if (isset($_FILES["kep"]) && $_FILES["kep"]["error"] === UPLOAD_ERR_OK) 
         {
 
-        $celMappa = "kepek/" . $vasuttarsasag . "/";
+            $celMappa = "kepek/" . $vasuttarsasag . "/";
 
-        // Mappa létrehozása, ha még nem létezik
-        if (!is_dir($celMappa)) {
-            mkdir($celMappa, 0777, true);
+            if (!is_dir($celMappa)) {
+                mkdir($celMappa, 0777, true);
+            }
+
+            $fajlNev = basename($_FILES["kep"]["name"]);
+            $celUtvonal = $celMappa . $fajlNev;
+
+            $check = getimagesize($_FILES["kep"]["tmp_name"]);
+            if ($check !== false) 
+            {
+
+                if (move_uploaded_file($_FILES["kep"]["tmp_name"], $celUtvonal)) 
+                {
+                    echo "A(z) " . htmlspecialchars($fajlNev) . " nevű fájl feltöltése megtörtént!";
+ 
+                } 
+                else 
+                {
+                    echo "Nem sikerült a feltöltés!";
+                }
+
+            } 
+            else
+            {
+                echo "A fájl nem kép.";
+            }
         }
 
-        $fajlNev = basename($_FILES["kep"]["name"]);
-        $celUtvonal = $celMappa . $fajlNev;
 
-        $check = getimagesize($_FILES["kep"]["tmp_name"]);
-        if ($check !== false) 
+        $jsonAdatok = json_decode(file_get_contents($vasuttarsasag."forras.json"));
+
+        //var_dump($jsonAdatok[0]->kepek);
+
+        foreach($jsonAdatok as $elem)
         {
-
-        if (move_uploaded_file($_FILES["kep"]["tmp_name"], $celUtvonal)) {
-            echo "A(z) " . htmlspecialchars($fajlNev) . " nevű fájl feltöltése megtörtént!";
-            
-            //$kepFajlnev = $fajlNev; 
-        } else {
-            echo "Nem sikerült a feltöltés!";
+            if($elem -> nev == $jarmutipus)
+            {
+                $elem -> kepek[] = $fajlNev;
+            }
         }
 
-        } 
-        else {
-         echo "A fájl nem kép.";
-        }
-    }
+        file_put_contents($vasuttarsasag."forras.json",json_encode($jsonAdatok));
+
+        header("Location: ".uri(3));
+        exit;
+
     }
 
 ?>
