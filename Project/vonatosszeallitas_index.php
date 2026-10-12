@@ -42,7 +42,7 @@ include("include/functions.php");
 
 <body>
     <div id="container-fluid">
-        <header class="bg-dark p-2 text-white"><h1 class="text-center">MÁV/GYSEV/ÖBB Vonatösszeállítás tervező</h1></header>
+        <header class="bg-dark p-2 text-white"><h1 class="text-center">Vonatösszeállítás tervező</h1></header>
                 <?php 
                     if(!isset($_GET["menu"]))
                     {

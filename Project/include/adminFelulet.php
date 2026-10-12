@@ -8,6 +8,7 @@
                 <option value="MAV" default>MÁV</option>
                 <option value="GYSEV">GYSEV</option>
                 <option value="OEBB">ÖBB</option>
+                <option value="CD">CD</option>
             </select>
         </div>
         <div class="row">
