@@ -1,37 +1,49 @@
-<h1>Admin felület</h1>
 <div class="container">
     <div class="row">
-        <div class="col-12"> 
-            <form action="<?php echo uri(3);?>" method="post" enctype="multipart/form-data">
-            <label>Vasúttársaság</label>
-            <select name="kivalaszt" id="tarsasagKivalaszt" class="form-control">
-                <option value="MAV" default>MÁV</option>
-                <option value="GYSEV">GYSEV</option>
-                <option value="OEBB">ÖBB</option>
-                <option value="CD">CD</option>
-            </select>
-        </div>
-        <div class="row">
-        <div class="col-12">
-            <label>Járműtípus</label>
-            <select name="jarmuTipuskivalaszt" id="jarmuTipuskivalaszt" class="form-control">
+        <div class="card">
+            <div class="card-head">
+                <h1>Admin felület</h1>
+                <hr>
+            </div> 
+            <div class="card-body">
+                <form action="<?php echo uri(3);?>" method="post" enctype="multipart/form-data">
+                <label>Vasúttársaság</label>
+                <select name="kivalaszt" id="tarsasagKivalaszt" class="form-control">
+                    <option value="MAV" default>MÁV</option>
+                    <option value="GYSEV">GYSEV</option>
+                    <option value="OEBB">ÖBB</option>
+                    <option value="CD">CD</option>
+                </select>
+                <label>Járműtípus</label>
+                <select name="jarmuTipuskivalaszt" id="jarmuTipuskivalaszt" class="form-control">
 
-            </select>  
-        </div>
-        </div>
-
+                </select> 
+                <label>Jármű képe:</label>
+                <input type="file" name="kep" class="form-control">
+                <button type="submit" class="btn btn-dark mt-2" name="hozzaadas">Jármű hozzáadása</button>
+                </form>
+            </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <label>Jármű képe:</label>
-            <input type="file" name="kep" class="form-control">
+    <div class="card mt-4">
+            <div class="card-head">
+                <h1>Vasúttársaság hozzáadása</h1>
+                <hr>
+            </div> 
+            <div class="card-body">
+                <form action="<?php echo uri(3);?>" method="post" enctype="multipart/form-data">
+                <label>Társaság neve</label>
+                <input type="text" name="tarsasagNev" class="form-control">
+                <label>Kategóriák</label>
+                <textarea name="kategoriak" placeholder="Add meg a kívánt kategóriákat! Minden kategóriát új sorba írj!" class="form-control" ></textarea>
+                <label>A társaság logója</label>
+                <input type="file" name="logoMegadott" class="form-control">
+                <button type="submit" class="btn btn-dark mt-2" name="tarsasagHozzaad">Társaság hozzáadása</button>
+                </form>
+            </div>
     </div>
-    <div class="row">
-        <div class="col-12 mt-2">
-            <button type="submit" class="btn btn-dark" name="hozzaadas">Jármű hozzáadása</button>
-    </div>
-    </form>
-    
+</div>
+</div>
 </div>
 
 <script>
@@ -156,8 +168,54 @@
 
         file_put_contents($vasuttarsasag."forras.json",json_encode($jsonAdatok));
 
-        header("Location: ".uri(3));
-        exit;
+
+    }
+
+    if(isset($_POST["tarsasagHozzaad"]))
+    {
+        $nev = "";
+        $kategoriak = [];
+        $logo = "";
+
+        if(isset($_POST["tarsasagNev"]) && htmlspecialchars($_POST["tarsasagNev"]))
+        {
+            $nev = $_POST["tarsasagNev"];
+        }
+        if(isset($_POST["kategoriak"]) && htmlspecialchars($_POST["kategoriak"]))
+        {
+            $vagas = explode(PHP_EOL,$_POST["kategoriak"]);
+            $kategoriak = $vagas;
+        }
+
+		
+		class Jarmutipus
+		{
+			public $nev;
+			public $kepek;
+
+			function __construct($nev,$kepek)
+			{
+				$this->$nev = $nev;
+				$this->$kepek = $kepek;
+			}
+
+		}
+
+		$teljesForras = [];
+
+		for($i = 0;$i < sizeof($kategoriak);$i++)
+		{
+			$teljesForras[] = Jarmutipus($kategoriak[$i],[]);
+		}
+
+		
+
+
+
+
+
+
+        
 
     }
 

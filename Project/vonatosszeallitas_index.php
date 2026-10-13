@@ -1,4 +1,3 @@
-
 <?php
 include("include/functions.php");
 ?>
@@ -83,3 +82,10 @@ include("include/functions.php");
     
 </body>
 </html>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    header("Location: ".uri($_GET["menu"]));
+    exit;
+}
+?>

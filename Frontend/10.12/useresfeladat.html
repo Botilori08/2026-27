@@ -9,7 +9,8 @@
 </head>
 <body onload="selectbetolt()">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <header class="row bg-dark text-white p-2"><h1>Randomuser feladat</h1></header>
+        <nav class="row navbar navbar-expand-lg navbar-light bg-light">
          <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,11 +28,12 @@
         </div>
         </nav>
         <div class="row" id="oldal1">
-            <select id="kivalaszt"></select>
+            <div class="col-12" id="checkboxokhelye"></div>
         </div>
         <div class="row d-none" id="oldal2">
             2. oldal
         </div>
+        <footer class="row bg-dark text-white p-2 mt-5"><p>Loru</p></footer>
     </div>
 
     <script>
@@ -57,17 +59,62 @@
             }
         }
 
+        let kategoriak = [];
         function selectbetolt()
         {
+            let oldal1 = document.getElementById("oldal1");
+            let checkboxokhelye = document.getElementById("checkboxokhelye");
+            
+
             fetch("https://randomuser.me/api/")
             .then(x => x.json())
             .then( y => 
                 {
                     console.log(y);
 
-                    y.results.forEach(e => console.log(e));
+                    y.results.forEach(e =>
+                        {
+                            Object.keys(e).forEach(x =>
+                                {
+                                    kategoriak.push(x);
+                                }
+                            )
+                        }
+                    );
+                    
+                    for(let i = 0;i < kategoriak.length;i++)
+                    {
+                        let div = document.createElement("div");
+                        div.className = "form-check"
+                        let input = document.createElement("input");
+                        input.type = "checkbox";
+                        input.value = kategoriak[i];
+                        input.className = "form-check-input";
+                        input.id = "check"+i;
+                        div.appendChild(input);
+                        let label = document.createElement("label");
+                        label.innerHTML = kategoriak[i];
+                        label.className = "form-check-label";
+                        div.appendChild(label);
+                        checkboxokhelye.appendChild(div);
+                        
+
+                    }
+
+                    let button = document.createElement("button");
+                    button.addEventListener("click", function(){bekuld()});
+                    button.className = "btn btn-dark mt-2";
+                    button.innerHTML = "Beküldés";
+                    oldal1.appendChild(button);
+
                 }
             )
+        }
+
+        function bekuld()
+        {
+            let checkboxokhelye = document.getElementById("checkboxokhelye");
+            console.log(checkboxokhelye.children)
         }
 
     </script>

@@ -33,18 +33,54 @@
         <div class="card mt-5">
             <div class="card-header"><h2>Eddig rögzített hibajegyek</h2></div>
             <div class="card-body">
+                    <?php 
+                    
+                    if(file_exists("hibak.txt"))
+                    {
+                        $sorok = file("hibak.txt");
+                        $szoveg = "";
+                        $szoveg .= "<ol>";
+                        
+                        for($i = 0;$i < sizeof($sorok);$i++)
+                        {
+                            $szoveg .= "<li>".$sorok[$i]."</li>";
+                        }
+                        $szoveg .= "</ol>";
+                        echo $szoveg;
+
+                    }
+                    else
+                    {
+                        echo "<h2>Még nincs felvett hibajegy!</h2>";
+                    }
+
+                ?>
+
             </div>
 
         </div>
     </div>
 
     <?php 
+        date_default_timezone_set("Europe/Budapest");
+        if(isset($_POST["kuldes"]))
+        {
+            $nev = $_POST["nev"];
+            $uzenet = $_POST["uzenet"];
 
-        $nev = $_POST["nev"];
-        $uzenet = $_POST["uzenet"];
+            $file = fopen("hibak.txt","a");
 
-        $file = fopen("hibak.txt","r");
-        fclose($file);
+
+            $sor = "[".date("Y-m-d H:i:s",time())."] | Név: $nev | Üzenet: $uzenet".PHP_EOL;
+
+            fwrite($file,$sor);
+
+            fclose($file);
+
+            header("Location: ".$_SERVER["PHP_SELF"]);
+            exit;
+        }
+
         
 
     ?>
