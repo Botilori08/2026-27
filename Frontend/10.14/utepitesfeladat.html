@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body onload="betolt()">
+    <div class="container">
+        <header class="row bg-dark text-white p-2"><h1>Randomuser feladat</h1></header>
+        <nav class="row navbar navbar-expand-lg navbar-light bg-light">
+         <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" onclick="oldalVizsgal(1);return false">2.feladat</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="oldalVizsgal(2);return false">3.feladat</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="oldalVizsgal(3);return false">4.feladat</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="oldalVizsgal(4);return false">5.feladat</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="oldalVizsgal(5);return false">6.feladat</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+        </nav>
+        <div class="row" id="oldal1">
+            2. feladat
+        </div>
+        <div class="row d-none" id="oldal2">
+            3. feladat
+        </div>
+        <div class="row d-none" id="oldal3">
+            4. feladat
+        </div>
+        <div class="row d-none" id="oldal4">
+            5. feladat
+        </div>
+        <div class="row d-none" id="oldal5">
+            6. feladat
+        </div>
+        <footer class="row bg-dark text-white p-2 mt-5"><p>Loru</p></footer>
+    </div>
+
+    <script>
+        function oldalVizsgal(szam=1)
+        {
+            if(szam == 1)
+            {
+                let oldal1 = document.getElementById("oldal1");
+                oldal1.classList.remove("d-none");
+                let oldal2 = document.getElementById("oldal2");
+                if(!oldal2.classList.toggle("d-none"))
+                {
+                    oldal2.classList.add("d-none");
+                }
+                let oldal3 = document.getElementById("oldal3");
+                if(!oldal3.classList.toggle("d-none"))
+                {
+                    oldal3.classList.add("d-none");
+                }
+                let oldal4 = document.getElementById("oldal4");
+                if(!oldal4.classList.toggle("d-none"))
+                {
+                    oldal4.classList.add("d-none");
+                }
+                let oldal5 = document.getElementById("oldal5");
+                if(!oldal5.classList.toggle("d-none"))
+                {
+                    oldal5.classList.add("d-none");
+                }
+            }
+            if(szam == 2)
+            {
+                let oldal2 = document.getElementById("oldal2");
+                oldal2.classList.remove("d-none");
+                let oldal1 = document.getElementById("oldal1");
+                oldal1.classList.add("d-none");
+                                let oldal3 = document.getElementById("oldal3");
+                if(!oldal3.classList.toggle("d-none"))
+                {
+                    oldal3.classList.add("d-none");
+                }
+                let oldal4 = document.getElementById("oldal4");
+                if(!oldal4.classList.toggle("d-none"))
+                {
+                    oldal4.classList.add("d-none");
+                }
+                let oldal5 = document.getElementById("oldal5");
+                if(!oldal5.classList.toggle("d-none"))
+                {
+                    oldal5.classList.add("d-none");
+                }
+            }
+            if(szam == 3)
+            {
+                let oldal3 = document.getElementById("oldal3");
+                oldal3.classList.remove("d-none");
+                let oldal1 = document.getElementById("oldal1");
+                oldal1.classList.add("d-none");
+                let oldal2 = document.getElementById("oldal2");
+                if(!oldal2.classList.toggle("d-none"))
+                {
+                    oldal2.classList.add("d-none");
+                }
+                let oldal4 = document.getElementById("oldal4");
+                if(!oldal4.classList.toggle("d-none"))
+                {
+                    oldal4.classList.add("d-none");
+                }
+                let oldal5 = document.getElementById("oldal5");
+                if(!oldal5.classList.toggle("d-none"))
+                {
+                    oldal5.classList.add("d-none");
+                }
+            }
+            if(szam == 4)
+            {
+                let oldal4 = document.getElementById("oldal4");
+                oldal4.classList.remove("d-none");
+                let oldal1 = document.getElementById("oldal1");
+                oldal1.classList.add("d-none");
+                let oldal2 = document.getElementById("oldal2");
+                if(!oldal2.classList.toggle("d-none"))
+                {
+                    oldal2.classList.add("d-none");
+                }
+                let oldal3 = document.getElementById("oldal3");
+                if(!oldal3.classList.toggle("d-none"))
+                {
+                    oldal3.classList.add("d-none");
+                }
+                let oldal5 = document.getElementById("oldal5");
+                if(!oldal5.classList.toggle("d-none"))
+                {
+                    oldal5.classList.add("d-none");
+                }
+            }
+            if(szam == 5)
+            {
+                let oldal5 = document.getElementById("oldal5");
+                oldal5.classList.remove("d-none");
+                let oldal1 = document.getElementById("oldal1");
+                oldal1.classList.add("d-none");
+                let oldal2 = document.getElementById("oldal2");
+                if(!oldal2.classList.toggle("d-none"))
+                {
+                    oldal2.classList.add("d-none");
+                }
+                let oldal3 = document.getElementById("oldal3");
+                if(!oldal3.classList.toggle("d-none"))
+                {
+                    oldal3.classList.add("d-none");
+                }
+                let oldal4 = document.getElementById("oldal4");
+                if(!oldal4.classList.toggle("d-none"))
+                {
+                    oldal4.classList.add("d-none");
+                }
+            }
+        }
+
+        function betolt()
+        {
+
+            fetch("api.php")
+            .then(x => x.json())
+            .then(y => 
+                {
+                    console.log(y);
+                }
+            )
+            
+        }
+    </script>
+
+    
+
+</body>
+</html>
