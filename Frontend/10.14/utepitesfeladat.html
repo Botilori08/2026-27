@@ -37,7 +37,11 @@
         </div>
         </nav>
         <div class="row" id="oldal1">
-            2. feladat
+            <div class="col-12">
+                <input type="number" id="megadottSzam" class="form-control">
+                <button type="button" onclick="feladat2()" class="btn btn-primary mt-2">Beküldés</button>
+                <div id="feladat2"></div>
+            </div>
         </div>
         <div class="row d-none" id="oldal2">
             3. feladat
@@ -55,6 +59,10 @@
     </div>
 
     <script>
+
+        let adatok = [];
+        let autokSzama = 0;
+
         function oldalVizsgal(szam=1)
         {
             if(szam == 1)
@@ -88,7 +96,7 @@
                 oldal2.classList.remove("d-none");
                 let oldal1 = document.getElementById("oldal1");
                 oldal1.classList.add("d-none");
-                                let oldal3 = document.getElementById("oldal3");
+                let oldal3 = document.getElementById("oldal3");
                 if(!oldal3.classList.toggle("d-none"))
                 {
                     oldal3.classList.add("d-none");
@@ -179,11 +187,34 @@
             .then(x => x.json())
             .then(y => 
                 {
-                    console.log(y);
+                    adatok = y;
+
+                    autokSzama = y[0].autokSzama;
+
+                    y.shift();
+
+                    console.log(adatok);
+
+                    
                 }
             )
             
         }
+
+        function feladat2()
+        {
+            let feladat2 = document.getElementById("feladat2");
+
+            let megadottSzam = document.getElementById("megadottSzam").value;
+            console.log(adatok);
+
+            feladat2.innerHTML = "A megadott számú autó " +adatok[parseInt(megadottSzam)-1].varos+" város felé tartott";
+
+
+
+
+        }
+
     </script>
 
     
