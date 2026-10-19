@@ -6,6 +6,7 @@ switch($_GET["menu"] ?? 0)
     default:
     $oldalCim = "Feladat 2";
     include("include/feladat2.php");
+    $mainContent = "l";
     break;
     case 2:
     $oldalCim = "Feladat 3";
