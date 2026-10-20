@@ -44,8 +44,10 @@
         $jsonTomb[] = $egyAdat;
     }
 
+    $json = json_encode($jsonTomb);
 
-    $jsonTomb = [];
+
+    /*$jsonTomb = [];
     $jsonTomb[] = ["autokSzama"=>intval(trim($jarmuSzam))];
     
     for($i = 0;$i < sizeof($file);$i++)
@@ -53,12 +55,12 @@
         $vagas = explode(" ",$file[$i]);
         
         $jsonTomb[] = ["ora"=>intval($vagas[0]),"perc"=>intval($vagas[1]),"masodperc"=>intval($vagas[2]),"elteltIdo"=>intval($vagas[3]),"varos"=>trim($vagas[4])];
-    }
+    }*/
 
     $json = json_encode($jsonTomb);
 
     //header("Content-Type: application/json; charset='utf-8'");
-
+    header('Content-Type: application/json; charset=utf-8');
     echo $json;
     //var_dump($file);
 
