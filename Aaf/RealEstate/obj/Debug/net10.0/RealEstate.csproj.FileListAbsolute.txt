@@ -1,0 +1,16 @@
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\bin\Debug\net10.0\RealEstate.exe
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\bin\Debug\net10.0\RealEstate.deps.json
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\bin\Debug\net10.0\RealEstate.runtimeconfig.json
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\bin\Debug\net10.0\RealEstate.dll
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\bin\Debug\net10.0\RealEstate.pdb
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.AssemblyInfoInputs.cache
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.AssemblyInfo.cs
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.sourcelink.json
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.dll
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\refint\RealEstate.dll
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.pdb
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.genruntimeconfig.cache
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\ref\RealEstate.dll
+C:\xampp\htdocs\2026-27\Aaf\RealEstate\obj\Debug\net10.0\RealEstate.csproj.Up2Date

@@ -15,12 +15,14 @@
            
     <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
     <div class="container-fluid">
-         <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="">Üdv!</a>
+		</li>
         <li class="nav-item">
           <a class="nav-link" href="">2.feladat</a>
         </li>
@@ -41,12 +43,12 @@
   </div>
 </nav>
 </div>
-        <div class="row" id="main">
-                <h1>Üdv kishaver!</h1>
+        <main class="row" id="main">
+                <h2>Üdv kishaver!</h2>
                 <article>
-
+					Szia uram!
                 </article>
-        </div>
+			</main>
         <footer class="row bg-dark text-white p-2 mt-5"><p> &copy; Loru 2026.10.20.</p></footer>
 
     </div>
@@ -63,7 +65,7 @@
 
                 adatok = y;
             }
-        )
+        );
 
         (function(){
 
@@ -71,14 +73,55 @@
             
             menupontok.forEach((e,i) =>
                 {
-                    e.onclick = function(){inditas(i)}
+                    e.onclick = function(event)
+                    {
+                        inditas(i+1)
+                        event.preventDefault();
+                    }
                 }
             )
-
-
         })();
 
-        
+        function inditas(szam)
+        {
+          
+			console.log(`A feladat száma: ${szam}`);
+		  if(szam == 1)
+		  {
+				document.querySelector("main h2").innerHTML = "Üdv kishaver!";
+		  }
+		  else
+		  {
+				document.querySelector("main h2").innerHTML = "Feladat"+szam;
+		  }
+
+		  	const f = [];
+
+			f[1] = "Szia uram!";
+			f[2] = `<label for="">Adja meg az autó sorszámát:</label>
+				<input type="number" name="" id="sorszam">
+				<button type="button" class="btn btn-secondary" onclick="feladat2()">Küldés</button>
+				<div id="eredmenyf2"></div>`
+
+			document.querySelector("main article").innerHTML = f[szam];
+		  
+
+        }
+
+		function feladat2()
+		{
+			let sorszam = parseInt(document.getElementById("sorszam").value)
+			let eredmeny = document.createElement("div")
+
+			let eredmenyf2 = document.getElementById("eredmenyf2");
+			eredmenyf2.innerHTML = "";
+
+			let adat = adatok[sorszam-1];
+			console.log(adat.varos)
+			eredmeny.innerHTML = `A(z) ${sorszam}. autó ${adat.varos} felé haladt`;
+			eredmenyf2.appendChild(eredmeny);
+
+		}
 
 
 

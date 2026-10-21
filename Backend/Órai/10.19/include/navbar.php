@@ -8,19 +8,19 @@ $navbar = '<div class="row">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="">2.feladat</a>
+          <a class="nav-link" href="index.php?menu=2">2.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">3.feladat</a>
+          <a class="nav-link" href="index.php?menu=3">3.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">4.feladat</a>
+          <a class="nav-link" href="index.php?menu=4">4.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">5.feladat</a>
+          <a class="nav-link" href="index.php?menu=5">5.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">6.feladat</a>
+          <a class="nav-link" href="index.php?menu=6">6.feladat</a>
         </li>
       </ul>
     </div>

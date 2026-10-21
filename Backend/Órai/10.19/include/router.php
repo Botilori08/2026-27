@@ -2,16 +2,18 @@
 
 switch($_GET["menu"] ?? 0)
 {
-    case 1:
+    case 2:
     default:
     $oldalCim = "Feladat 2";
     include("include/feladat2.php");
-    $mainContent = "l";
-    break;
-    case 2:
-    $oldalCim = "Feladat 3";
+    $mainContent = feladat2();
     break;
     case 3:
+    $oldalCim = "Feladat 3";
+    include("include/feladat3.php");
+    $mainContent = feladat3();
+    break;
+    case 4:
     $oldalCim = "Feladat 4";
     break;
 }

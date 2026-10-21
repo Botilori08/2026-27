@@ -30,10 +30,10 @@
         }
 
 
-    /*function utvonal($oldalSzam)
+    function utvonal($oldalSzam)
     {
         return htmlspecialchars($_SERVER["PHP_SELF"]) . "?menu=" . $oldalSzam;
-    }*/
+    }
 
     function adatBetolt()
     {
