@@ -33,6 +33,8 @@ namespace RealEstateGUI
                 adatok.Add(new Ad(item));
             }
 
+            Eladok.ItemsSource = adatok.Select(e => e.Seller.Name);
+
 
 
         }

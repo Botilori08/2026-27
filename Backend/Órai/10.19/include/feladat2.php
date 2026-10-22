@@ -2,16 +2,22 @@
 
 include_once("include/functions.php");
 
-$adatok = adatBetolt();
-
 //var_dump($adatok);
+
 
 function feladat2()
 {
-    $adatok = adatBetolt();
+    
+
+    $content = urlap();
+    if(isset($_POST["sorszamBekuld"]))
+    {
+        $adatok = adatBetolt();
+        $content .= autoKeres($adatok);
+    }
 
     //var_dump($adatok);
-    return urlap();
+    return $content;
 }
 
 function urlap()
@@ -24,5 +30,29 @@ function urlap()
         </div>
     </form>';
 }
+
+function autoKeres($adatok)
+{
+    
+    $sorszam = intval($_POST["sorszam"] ?? 1);
+    if($sorszam < 0 || $sorszam > sizeof($adatok))
+    {
+        return '<div class="row">
+        <div>Nincs ilyen számú jármű!</div>
+        </div>';
+    }
+
+    $keresettAuto = $adatok[$sorszam-1];
+
+    
+    return '<div class="row">
+        <div>A <b>'.$sorszam.'.</b> számú autó <b>'.$keresettAuto->varos.'</b> felé haladt</div>
+    </div>';
+
+}
+
+
+
+
 
 ?>

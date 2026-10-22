@@ -1,7 +1,6 @@
-﻿<Window x:Class="Project.MainWindow"
+﻿<Window x:Class="RealEstateGUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="ProjektNeve.MainWindow
         Title="Ingatlanok" Height="450" Width="700">
 
     <!-- Fő rács: egy kis margó körbe, hogy ne tapadjon az ablak széléhez -->

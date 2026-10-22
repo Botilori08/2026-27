@@ -7,6 +7,7 @@
         public $masodperc;
         public $elteltIdo;
         public $varos;
+        public $sebesseg;
 
         /*public function __construct($ora,$perc,$masodperc,$sebesseg,$varos)
         {
@@ -26,6 +27,7 @@
             $this->masodperc = intval(trim($adatok[2]));
             $this->elteltIdo = intval(trim($adatok[3]));
             $this->varos = trim($adatok[4]);
+            $this->sebesseg = 1000/$this->elteltIdo;
         }
         }
 
