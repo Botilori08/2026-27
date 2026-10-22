@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace RealEstateGUI
 {
@@ -16,9 +17,24 @@ namespace RealEstateGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        List <Ad> adatok = new List <Ad> ();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void betoltes()
+        {
+            string[] sorok = File.ReadAllLines("realestates.csv");
+
+            foreach (var item in sorok)
+            {
+                adatok.Add(new Ad(item));
+            }
+
+
+
         }
     }
 }

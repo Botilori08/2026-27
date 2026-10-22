@@ -1,12 +1,61 @@
-﻿<Window x:Class="RealEstateGUI.MainWindow"
+﻿<Window x:Class="Project.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RealEstateGUI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        x:Class="ProjektNeve.MainWindow
+        Title="Ingatlanok" Height="450" Width="700">
 
+    <!-- Fő rács: egy kis margó körbe, hogy ne tapadjon az ablak széléhez -->
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <!-- Bal oldali oszlop a ListBoxnak (fix 250 pixel) -->
+            <ColumnDefinition Width="250" />
+            <!-- Jobb oldali oszlop az adatoknak (maradék hely kitöltése) -->
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Bal oldali lista -->
+        <!-- A Margin jobb oldalán (15) hagyunk kis helyet a form előtt -->
+        <ListBox Grid.Column="0" Margin="0,0,15,0" Name="Eladok">
+            <!-- Ide jönnek majd a nevek, pl: Szikla Szilárd -->
+        </ListBox>
+
+        <!-- Jobb oldali űrlap egy belső Grid-ben -->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <!-- 0. oszlop: Címkék (pl. "Eladó neve:"), automatikusan a leghosszabb szöveghez igazodik -->
+                <ColumnDefinition Width="Auto" />
+                <!-- 1. oszlop: Értékek (pl. "Szikla Szilárd"), kitölti a maradék helyet -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Név sora -->
+                <RowDefinition Height="Auto" />
+                <!-- Telefon sora -->
+                <RowDefinition Height="Auto" />
+                <!-- Gomb sora -->
+                <RowDefinition Height="Auto" />
+                <!-- Hirdetések száma sora -->
+                <RowDefinition Height="*" />
+                <!-- Üres tér az ablak aljáig -->
+            </Grid.RowDefinitions>
+
+            <!-- 1. SOR: Név -->
+            <Label Grid.Row="0" Grid.Column="0" Content="Eladó neve:" Margin="0,5,10,5" />
+            <Label x:Name="eladoNev" Grid.Row="0" Grid.Column="1" Content="" Margin="0,5,0,5" />
+
+            <!-- 2. SOR: Telefonszám -->
+            <Label Grid.Row="1" Grid.Column="0" Content="Eladó telefonszáma:" Margin="0,5,10,5" />
+            <Label x:Name="eladoTelefonszam" Grid.Row="1" Grid.Column="1" Content="" Margin="0,5,0,5" />
+
+            <!-- 3. SOR: Gomb -->
+            <!-- A Grid.ColumnSpan="2" miatt a gomb mindkét oszlopon átível -->
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Hirdetések betöltése" Margin="0,15,0,15" Height="25" />
+
+            <!-- 4. SOR: Hirdetések száma -->
+            <Label Grid.Row="3" Grid.Column="0" Content="Hirdetések száma:" Margin="0,5,10,5" />
+            <Label x:Name="hirdetesekSzama" Grid.Row="3" Grid.Column="1" Content="" Margin="0,5,0,5" />
+        </Grid>
     </Grid>
 </Window>
