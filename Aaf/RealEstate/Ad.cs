@@ -19,55 +19,69 @@ namespace RealEstate
         public int Rooms { get; set; }
         public Seller Seller { get; set; }
 
+
         public Ad(string csvSor)
         {
             string[] adatok = csvSor.Split(';');
 
             this.Id = int.Parse(adatok[0]);
-            this.Description = adatok[1];
-            this.Rooms = int.Parse(adatok[2]);
-            this.Area = int.Parse(adatok[3]);
-            this.Floors = int.Parse(adatok[4]);
+            this.Rooms = int.Parse(adatok[1]);
 
-            this.Category = new Category
-            {
-                Id = int.Parse(adatok[5]),
-                Name = adatok[6]
-            };
+            this.LatLong = adatok[2];
+
+            this.Floors = int.Parse(adatok[3]);
+
+
+            this.Area = int.Parse(adatok[4]);
+
+            this.Description = adatok[5];
+
+            this.FreeOfCharge = adatok[6] == "1";
+
+            this.ImageUrl = adatok[7];
+
+            this.CreateAt = DateTime.Parse(adatok[8]);
 
             this.Seller = new Seller
             {
-                Id = int.Parse(adatok[7]),
-                Name = adatok[8],
-                Phone = adatok[9]
+                Id = int.Parse(adatok[9]),
+                Name = adatok[10],
+                Phone = adatok[11]
             };
 
-            this.FreeOfCharge = bool.Parse(adatok[10]);
-
-            this.ImageUrl = adatok[11];
-
-            this.LatLong = adatok[12];
-
-            this.CreateAt = DateTime.Parse(adatok[13]);
+            this.Category = new Category
+            {
+                Id = int.Parse(adatok[12]),
+                Name = adatok[13]
+            };
         }
-
         public static List<Ad> LoadFromCsv(string fileName)
         {
             List<Ad> ads = new List<Ad>();
+
             if (File.Exists(fileName))
             {
                 string[] sorok = File.ReadAllLines(fileName);
+
                 for (int i = 1; i < sorok.Length; i++)
                 {
                     ads.Add(new Ad(sorok[i]));
                 }
             }
-            else
-            {
-                Console.WriteLine($"A {fileName} nevű fájl nem található!");
-            }
 
             return ads;
+        }
+
+        public double DistanceTo(double a , double b)
+        {
+            double sajatA = double.Parse(this.LatLong.Split(",")[0],System.Globalization.CultureInfo.InvariantCulture);
+            double sajatB = double.Parse(this.LatLong.Split(",")[1],System.Globalization.CultureInfo.InvariantCulture);
+
+            double aKulonbseg = sajatA - a;
+            double bKulonbseg = sajatB - b;
+
+            return Math.Sqrt(Math.Pow(aKulonbseg,2) + Math.Pow(bKulonbseg,2));
+
         }
     }
 }

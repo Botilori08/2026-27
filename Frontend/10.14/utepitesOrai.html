@@ -24,19 +24,19 @@
 			<a class="nav-link" href="">Üdv!</a>
 		</li>
         <li class="nav-item">
-          <a class="nav-link" href="">2.feladat</a>
+          <a class="nav-link" href="#" onclick="inditas(2);return false">2.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">3.feladat</a>
+          <a class="nav-link" href="#" onclick="inditas(3);return false">3.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">4.feladat</a>
+          <a class="nav-link" href="#" onclick="inditas(4);return false">4.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">5.feladat</a>
+          <a class="nav-link" href="#" onclick="inditas(5);return false">5.feladat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">6.feladat</a>
+          <a class="nav-link" href="#" onclick="inditas(5);return false">6.feladat</a>
         </li>
       </ul>
     </div>
@@ -50,6 +50,8 @@
                 </article>
 			</main>
         <footer class="row bg-dark text-white p-2 mt-5"><p> &copy; Loru 2026.10.20.</p></footer>
+
+
 
     </div>
 
@@ -82,8 +84,8 @@
             )
         })();
 
-        function inditas(szam)
-        {
+      function inditas(szam)
+      {
           
 			console.log(`A feladat száma: ${szam}`);
 		  if(szam == 1)
@@ -101,10 +103,18 @@
 			f[2] = `<label for="">Adja meg az autó sorszámát:</label>
 				<input type="number" name="" id="sorszam">
 				<button type="button" class="btn btn-secondary" onclick="feladat2()">Küldés</button>
-				<div id="eredmenyf2"></div>`
+				<div id="eredmenyf2"></div>`;
+      f[3] = `<div id="eredmenyf3"></div>`;
+      f[4] = `<h3>A forgalom bontása statisztikai formában</h3>
+        <table class="table table-striped">
+        <thead><tr><th>Óra</th><th>Alsó város felől érkezők</th><th>Felső város felől érkezők</th></tr></thead>
+        <tbody id="tablaTartalom"></tbody>
+        </table>
+      `;
+	  f[5] = `<div id="eredmenyf5"></div>`;
 
-			document.querySelector("main article").innerHTML = f[szam];
-		  
+		document.querySelector("main article").innerHTML = f[szam];
+		window["feladat"+szam]();
 
         }
 
@@ -122,6 +132,103 @@
 			eredmenyf2.appendChild(eredmeny);
 
 		}
+
+    function feladat3()
+    {
+      let utolsoKetto = adatok.filter(elem => elem.varos == "F");
+
+      let utolso = utolsoKetto.at(-1);
+      
+      let utolsoElotti = utolsoKetto.at(-2);
+
+
+      console.log(utolso,utolsoElotti);
+
+
+      let utolsoIdo = new Date(2000,1,1,utolso.ora,utolso.perc,utolso.masodperc).getTime();
+      
+      let utolsoElottiIdo = new Date(2000,1,1,utolsoElotti.ora,utolsoElotti.perc,utolsoElotti.masodperc).getTime();
+
+      console.log(utolsoIdo,utolsoElottiIdo);
+
+      let kulonbseg = utolsoIdo - utolsoElottiIdo;
+
+      console.log(kulonbseg/1000)
+      let eredmenyf3 = document.getElementById("eredmenyf3");
+			eredmenyf3.innerHTML = "";
+
+      let div = document.createElement("div");
+      div.innerHTML = `A különbség az utolsó két jármű között: ${kulonbseg/1000}`;
+      eredmenyf3.appendChild(div);
+      
+
+
+    }
+
+    function feladat4()
+    {
+        const tartalomHelye = document.getElementById("tablaTartalom");
+
+        const sorok = Object.groupBy(adatok,({ora})=> ora);
+
+
+        Object.keys(sorok).forEach(e=>
+          {
+            let tr = document.createElement("tr");
+            let th = document.createElement("th");
+            th.innerHTML = e;
+			tr.appendChild(th);
+
+			let td = document.createElement("td");
+
+			td.innerHTML = sorok[e].filter(elem => elem.varos == "A").length;
+			tr.appendChild(td);
+			
+			td = document.createElement("td");
+
+			td.innerHTML = sorok[e].filter(elem => elem.varos == "F").length;
+			tr.appendChild(td);
+			tartalomHelye.appendChild(tr);
+
+          }
+        )
+
+    }
+
+	function feladat5()
+	{
+
+		let eredmenyf5 = document.getElementById("eredmenyf5");
+		eredmenyf5.innerHTML = "";
+		
+		let rendezett = adatok.toSorted((a,b) => 
+		{
+			a.elteltIdo - b.elteltIdo;
+		}).slice(0,10);
+
+		console.log(rendezett)
+
+		let ol = document.createElement("ol");
+
+		rendezett.forEach(e =>
+		{
+			let li = document.createElement("li");
+			li.innerHTML = `${e.elteltIdo} s Sebesség: ${e.elteltIdo/1000} m/s A város: ${e.varos}`;
+			ol.appendChild(li);
+		}
+		)
+
+		eredmenyf5.appendChild(ol);
+
+	}
+
+	function feladat6()
+	{
+		let Fek = adatok.filter(elem => elem.varos == "F")
+
+		
+
+	}
 
 
 
