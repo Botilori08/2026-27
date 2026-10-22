@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\ad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:ad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|c:\\xampp\\htdocs\\2026-27\\aaf\\realestategui\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A29A1D32-0FA6-3362-6B95-DF75BC65938A}|RealEstateGUI.csproj|solutionrelative:category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Seller.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\2026-27\\Aaf\\RealEstateGUI\\Seller.cs",
               "RelativeDocumentMoniker": "Seller.cs",
@@ -42,11 +42,12 @@
               "RelativeToolTip": "Seller.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T06:24:48.03Z"
+              "WhenOpened": "2026-10-22T06:24:48.03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\2026-27\\Aaf\\RealEstateGUI\\Category.cs",
               "RelativeDocumentMoniker": "Category.cs",
@@ -58,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Ad.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\2026-27\\Aaf\\RealEstateGUI\\Ad.cs",
               "RelativeDocumentMoniker": "Ad.cs",
@@ -66,11 +67,12 @@
               "RelativeToolTip": "Ad.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T06:22:09.24Z"
+              "WhenOpened": "2026-10-22T06:22:09.24Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\2026-27\\Aaf\\RealEstateGUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -88,7 +90,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\xampp\\htdocs\\2026-27\\Aaf\\RealEstateGUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-20T08:56:50.157Z",
               "EditorCaption": ""
