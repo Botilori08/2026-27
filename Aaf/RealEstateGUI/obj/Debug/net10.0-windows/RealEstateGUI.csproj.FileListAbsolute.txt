@@ -6,7 +6,6 @@ C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\bin\Debug\net10.0-windows\RealEstateGU
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\App.g.cs
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\RealEstateGUI_MarkupCompile.cache
-C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\RealEstateGUI_MarkupCompile.lref
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\MainWindow.baml
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\RealEstateGUI.g.resources
 C:\xampp\htdocs\2026-27\Aaf\RealEstateGUI\obj\Debug\net10.0-windows\RealEstateGUI.GeneratedMSBuildEditorConfig.editorconfig
