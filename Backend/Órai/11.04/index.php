@@ -1,5 +1,7 @@
 <?php
 
+$adatok = betolt();
+
 echo router();
 
 function layout($cim,$leiras,$feladatMegoldas)
@@ -68,7 +70,7 @@ function router()
         default:
             $cim = "2.feladat";
             $leiras = "Írja a képernyőre annak a személynek az azonosítóját, aki a vizsgált időszakon belül először lépett be az ajtón, és azét, aki utoljára távozott a megfigyelési időszakban!";
-            $feladatMegoldas = '';
+            $feladatMegoldas = feladat2();
             break;
         case 3:
             $cim = "3.feladat";
@@ -94,11 +96,6 @@ száma szerepeljen!";
     return layout($cim,$leiras,$feladatMegoldas);
 }
 
-function feladat2()
-{
-
-}
-
 class Athaladas
 {
     public $ora;
@@ -106,21 +103,75 @@ class Athaladas
     public $id;
     public $irany;
 
-    public __construct($sor)
+    public function __construct($sor)
     {
-        $vagas = explode("\s",$sor);
+        $vagas = explode(" ",$sor);
         $this->ora = intval($vagas[0]);
         $this->perc = intval($vagas[1]);
         $this->id = intval($vagas[2]);
-        $this->irany = $vagas[3];
+        $this->irany = trim($vagas[3]);
     }
 
 }
 
 function betolt()
 {
-    
+    $sorok = file("ajto.txt");
+
+	$adatok = [];
+
+	foreach($sorok as $sor)
+	{
+		$adatok[] = new Athaladas($sor);
+	}
+
+	return $adatok;
+	
+
 }
+
+
+function feladat2()
+{
+	global $adatok;
+
+
+	$belepesek = [];
+
+	$kilepesek = [];
+
+	foreach($adatok as $adat)
+	{
+		if($adat->irany === "be")
+		{
+			$belepesek[] = $adat;
+		}
+		if($adat->irany === "ki")
+		{
+			$kilepesek[] = $adat;
+		}
+	}
+
+	return '<p>Először lépett be: <b>'.$belepesek[0]->id.'</b></p><br><p>Utolsóként lépett ki: <b>'.end($kilepesek)->id.'</b></p>';
+
+}
+
+function feladat3()
+{
+
+	global $adatok;
+
+	$csoportositott = [];
+
+	for($i = 0;$i < sizeof($adatok);$i++)
+	{
+		
+	}
+
+}
+
+
+
 
 
 
