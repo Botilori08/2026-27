@@ -44,6 +44,12 @@ function layout($cim,$leiras,$feladatMegoldas)
         <li class="nav-item">
           <a class="nav-link" href="?menu=6">6.feladat</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?menu=7">7.feladat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?menu=8">8.feladat</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -78,18 +84,42 @@ function router()
 A meghatározott értékeket azonosító szerint növekvő sorrendben írja az athaladas.txt
 fájlba! Soronként egy személy azonosítója, és tőle egy szóközzel elválasztva az áthaladások
 száma szerepeljen!";
-            $feladatMegoldas = "";
+            $feladatMegoldas = f3();
             break;
         case 4:
             $cim = "4.feladat";
             $leiras = "Írja a képernyőre azon személyek azonosítóját, akik a vizsgált időszak végén a társalgóban tartózkodtak!";
-            $feladatMegoldas = "";
+            $feladatMegoldas = feladat4();
             break;
         case 5:
             $cim = "5.feladat";
             $leiras = "Hányan voltak legtöbben egyszerre a társalgóban? Írjon a képernyőre egy olyan időpontot (óra:perc), amikor a legtöbben voltak bent!";
-            $feladatMegoldas = "";
+            $feladatMegoldas = feladat5();
             break;
+        case 6:
+            $cim = "6.feladat";
+            $leiras = "Kérje be a felhasználótól egy személy azonosítóját! A további feladatok megoldásánál ezt használja fel!
+Feltételezheti, hogy a megadott azonosítóhoz tartozik adat a forrásfájlban.";
+            $feladatMegoldas = feladat6();
+            break;
+        case 7:
+            $cim = "7.feladat";
+            $leiras = "Írja a képernyőre, hogy a beolvasott azonosítóhoz tartozó személy mettől meddig tartózkodott a társalgóban!";
+            $feladatMegoldas = feladat7();
+            break;
+        case 8:
+            $cim = "8.feladat";
+            $leiras = "Határozza meg, hogy a megfigyelt időszakban a beolvasott azonosítójú személy összesen
+hány percet töltött a társalgóban! Az előző feladatban példaként szereplő 22-es személy
+5 alkalommal járt bent, a megfigyelés végén még bent volt. Róla azt tudjuk, hogy 18 percet
+töltött bent a megfigyelés végéig. A 39-es személy 6 alkalommal járt bent, a vizsgált időszak
+végén nem tartózkodott a helyiségben. Róla azt tudjuk, hogy 39 percet töltött ott. Írja ki,
+hogy a beolvasott azonosítójú személy mennyi időt volt a társalgóban, és a megfigyelési
+időszak végén bent volt-e még! 
+";
+            $feladatMegoldas = feladat8();
+            break;
+            
 
     }
 
@@ -102,6 +132,7 @@ class Athaladas
     public $perc;
     public $id;
     public $irany;
+    public $idoString;
 
     public function __construct($sor)
     {
@@ -110,6 +141,7 @@ class Athaladas
         $this->perc = intval($vagas[1]);
         $this->id = intval($vagas[2]);
         $this->irany = trim($vagas[3]);
+        $this->idoString = $this->ora .":". $this->perc;
     }
 
 }
@@ -156,19 +188,250 @@ function feladat2()
 
 }
 
-function feladat3()
+function f3()
 {
+    global $adatok;
 
-	global $adatok;
 
-	$csoportositott = [];
+    $stat = [];
 
-	for($i = 0;$i < sizeof($adatok);$i++)
-	{
-		
-	}
+
+    for ($i = 0; $i < sizeof($adatok); $i++) {
+        if (!isset($stat[$adatok[$i]->id])) {
+            $stat[$adatok[$i]->id] = [$adatok[$i]->id, 0];
+        }
+        $stat[$adatok[$i]->id][1] ++;
+    }
+    //var_dump($stat);
+
+
+    usort($stat,function($a,$b){return $a[1]-$b[1];});
+
+
+    //var_dump($stat);
+    $myfile = fopen("athaladas.txt", "w");
+    foreach($stat as $elem){
+        $txt = "$elem[0] $elem[1]\n";
+        fwrite($myfile, $txt);
+    };
+    fclose($myfile);
+    //file_put_contents("athaladas.txt",$stat);
+    return "A fájl létrehozása megtörtént";
+
 
 }
+
+
+function feladat4()
+{
+    global $adatok;
+
+    $content = "<h3>A végén a társalgóban maradtak</h3>";
+
+
+    $bentMaradtak = [];
+
+    for($i=0;$i < sizeof($adatok);$i++)
+    {
+        if($adatok[$i]->irany === "be")
+        {
+            $bentMaradtak[$adatok[$i]->id] = [$adatok[$i]->id,0];
+        }
+        else
+        {
+            unset($bentMaradtak[$adatok[$i]->id]);
+        }
+    }
+
+
+    $azonositok = [];
+
+    foreach($bentMaradtak as $adat)
+    {   
+        $azonositok[] = $adat[0];
+    }
+
+
+    $content .= "<ul>";
+
+    foreach($azonositok as $egyAzon)
+    {
+        $content .= "<li>".$egyAzon."</li>";
+    }
+
+    $content .= "</ul>";
+
+    //Vagy implode("</li><li>",$adatok)
+        
+    return $content;
+}
+
+function feladat5()
+{
+    global $adatok;
+
+    $stat = [];
+    $darab = 0;
+
+    $ido = "";
+    for($i = 0;$i < sizeof($adatok);$i++)
+    {
+        if($adatok[$i]->irany === "be")
+        {
+            $darab++;
+        }
+        else
+        {
+            $darab--;
+        }
+        $stat[] = $darab;
+
+    }
+
+    $maxIndex = 0;
+
+    for($i = 0;$i < sizeof($stat);$i++)
+    {
+        if($stat[$i] > $stat[$maxIndex])
+        {
+            $maxIndex = $i;
+        }
+    }
+
+
+    return "A legtöbben a társalgóban ".$adatok[$maxIndex]->idoString."-kor voltak";
+
+}
+
+function feladat6()
+{
+    global $adatok;
+
+    $content = '
+    <form method="post" action="?menu=6">
+    <label for="azonosito">Adj meg egy azonosítót</label>
+    <input type="number" name="azonosito" id="azonosito" class="form-control">
+    <button type="submit" name="idBekuldes" class="btn btn-secondary mt-2 mb-2">Küldés</button>
+    </form>';
+
+
+    if(isset($_POST["idBekuldes"]))
+    {
+        $id = intval($_POST["azonosito"]);
+
+        $file = fopen("azonosito.txt","w");
+        fwrite($file,$id);
+        fclose($file);
+        
+    }
+
+        
+    return $content;
+
+}
+
+function feladat7()
+{
+    global $adatok;
+
+    $azonosito = intval(file("azonosito.txt")[0]);
+
+    //echo($azonosito);
+    $content = "";
+
+    $tartozkodasok = [];
+
+    for($i = 0;$i < sizeof($adatok);$i++)
+    {
+        if($adatok[$i]->id === $azonosito)
+        {
+            if($adatok[$i]->irany === "be")
+            {
+                $tartozkodasok[] = [$adatok[$i]->idoString,"be"];
+            }
+            else
+            {
+                $tartozkodasok[] = [$adatok[$i]->idoString,"ki"];
+            }
+        }
+    }
+
+    for($i = 0;$i < sizeof($tartozkodasok);$i++)
+    {
+        $tartozkodasSzoveg = "";
+        if($tartozkodasok[$i][1] == "be")
+        {
+            $tartozkodasSzoveg .= $tartozkodasok[$i][0]."-";
+        }
+        else
+        {
+            $tartozkodasSzoveg .= $tartozkodasok[$i][0]."<br>";
+        }
+
+        $content .= $tartozkodasSzoveg;
+
+    }
+
+
+    return $content;
+    //var_dump($tartozkodasok);
+}
+
+function feladat8()
+{
+    global $adatok;
+
+    $azonosito = intval(file("azonosito.txt")[0]);
+
+    $content = "";
+
+    $tartozkodasok = [];
+
+    for($i = 0;$i < sizeof($adatok);$i++)
+    {
+        if($adatok[$i]->id === $azonosito)
+        {
+            if($adatok[$i]->irany === "be")
+            {
+                $tartozkodasok[] = [$adatok[$i]->idoString,"be"];
+            }
+            else
+            {
+                $tartozkodasok[] = [$adatok[$i]->idoString,"ki"];
+            }
+        }
+    }
+
+    var_dump($tartozkodasok);
+
+    $ido = 0;
+
+    for($i = 0;$i < sizeof($tartozkodasok);$i++)
+    {
+        $beOra = 0;
+        $bePerc = 0;
+        $kiOra = 0;
+        $kiPerc = 0;
+
+        if($tartozkodasok[$i][1] === "be")
+        {
+            $beOra = intval(explode(":",$tartozkodasok[$i][0])[0]);
+            $bePerc = intval(explode(":",$tartozkodasok[$i][0])[1]);
+        }
+        else
+        {
+            $kiOra = intval(explode(":",$tartozkodasok[$i][0])[0]);
+            $kiPerc = intval(explode(":",$tartozkodasok[$i][0])[1]);
+        }
+
+        $ido += ($kiOra*60+$kiPerc) - ($beOra*60+$bePerc);
+
+    }
+
+    return $ido;
+
+}
+
 
 
 
