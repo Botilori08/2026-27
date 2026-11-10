@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telefonos ügyfélszolgálat 2016. október</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+
+        div.nav-link:hover {cursor: pointer;}
+
+    </style>
+</head>
+<body onload="betolt()">
+    <div class="container-fluid">
+        <header class="row bg-dark text-white"><h1 class="col-12">Telefonos ügyfélszolgálat 2016. október</h1></header>
+        <nav class="row navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <div class="nav-link" onclick="oldalBetolt(3)">3.feladat</div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link" onclick="oldalBetolt(4)">4.feladat</div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link" onclick="oldalBetolt(5)">5.feladat</div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link" onclick="oldalBetolt(6)">6.feladat</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <main class="row">
+            <div class="col-12">
+                <h2>Feladat száma</h2>
+                <pre>Feladat leírása</pre>
+                <article></article>
+            </div>
+        </main>
+        <footer class="row bg-dark text-white"><div class="col-12">Boti Lóránt &copy; 2026.11.10.</div></footer>
+    </div>
+</body>
+
+<script>
+
+    function idokonverzio(kezdet,veg)
+	{
+		let k = new Date("2000.01.01 "+kezdet.ora+":"+kezdet.perc+":"+kezdet.masodperc).getTime()/1000;
+		let vege = new Date("2000.01.01 "+veg.ora+":"+veg.perc+":"+veg.masodperc).getTime()/1000;
+
+		return vege - k;
+	}
+
+    let adatok;
+
+    function betolt()
+    {
+        fetch("http://f6-07/Frontend/cuccok/okt16.json")
+        .then(x => x.json())
+        .then(y =>
+            {
+                console.log(y);
+
+                adatok = y;
+            }
+        )
+    }
+
+    function oldalBetolt(oldalSzama)
+    {
+      document.querySelector("main div h2").innerHTML = "";
+      document.querySelector("main div pre").innerHTML = ``;
+      document.querySelector("main div article").innerHTML = "";
+
+        switch(oldalSzama)
+        {
+          case 3:
+          default:
+            document.querySelector("main div h2").innerHTML = "3.feladat";
+            document.querySelector("main div pre").innerHTML = `Készítsen statisztikát, amely megadja, hogy óránként hány hívás futott be! A képernyőn 
+soronként egy óra-darabszám párost jelenítsen meg! Csak azok az órák jelenjenek meg, 
+amelyben volt hívás! `;
+            document.querySelector("main div article").appendChild(feladat3());
+            break;
+          case 4:
+            document.querySelector("main div h2").innerHTML = "4.feladat";
+            document.querySelector("main div pre").innerHTML = `Írja a képernyőre a leghosszabb hívásnak a sorszámát és másodpercben kifejezett hosszát – 
+attól függetlenül, hogy a hívó tudott-e beszélni az ügyfélszolgálatossal vagy sem! Azonos 
+híváshossz esetén elegendő egyet megjelenítenie.`;
+            document.querySelector("main div article").appendChild(feladat4());
+            break;          
+		case 5:
+            document.querySelector("main div h2").innerHTML = "5.feladat";
+            document.querySelector("main div pre").innerHTML = `Olvasson be egy munkaidőn belüli időpontot, majd jelenítse meg a képernyőn, hogy 
+hányadik hívóval beszélt akkor az alkalmazott, és éppen hányan vártak arra, hogy sorra 
+kerüljenek! Ha nem volt hívó, akkor a „Nem volt beszélő.” üzenetet jelenítse meg! `;
+            document.querySelector("main div article").appendChild(feladat5());
+            break;
+
+        }
+    }
+
+    function feladat3()
+    {
+    	let statisztika = [];
+		
+		adatok.forEach(e => {
+			if(statisztika[e.kezdet.ora] == undefined)
+			{
+				statisztika[e.kezdet.ora] = 0;
+			}
+			
+			statisztika[e.kezdet.ora]++;
+		});
+
+		console.log(statisztika);
+
+		let div = document.createElement("div");
+
+		let table = document.createElement("table");
+		table.className = "table";
+
+
+		let thead = document.createElement("thead");
+		
+		let tr = document.createElement("tr");
+
+
+		let th = document.createElement("th");
+		th.innerHTML = "Óra";
+		let thszam = document.createElement("th");
+		thszam.innerHTML = "Hívások száma";
+
+		tr.appendChild(th);
+		tr.appendChild(thszam);
+
+		thead.appendChild(tr);
+
+		let tbody = document.createElement("tbody");
+		
+		statisztika.forEach((e,i) =>
+		{
+			tr = document.createElement("tr");
+			let td = document.createElement("td");
+			td.innerHTML = i;
+			tr.appendChild(td);
+			td = document.createElement("td");
+			td.innerHTML = e;
+			tr.appendChild(td);
+			tbody.appendChild(tr);
+		})
+
+		table.appendChild(thead);
+		table.appendChild(tbody);
+
+
+		div.appendChild(table);
+
+		return div;
+		
+    }
+
+    function feladat4()
+    {
+		let leghosszabb = 0;
+		let szama = 0;
+
+		let idok = [];
+
+		adatok.forEach(e =>
+			{
+				idok.push(idokonverzio(e.kezdet,e.veg));
+			}
+		)
+
+		idok.forEach((e,i) => 
+			{
+				if(e > leghosszabb)
+				{
+					leghosszabb = e;
+					szama = i;
+				}
+			}
+		)
+
+		let div = document.createElement("div");
+
+		div.innerHTML = ` A leghosszabb ideig vonalban levo hivo <b>${szama+1}.</b> sorban szerepel, 
+a hivas hossza: <b>${leghosszabb}</b> másodperc.`
+
+		return div;
+
+    }
+
+	function feladat5()
+	{
+		let div = document.createElement("div");
+
+		let label = document.createElement("label");
+		label.for = "idopont";
+
+		let input = document.createElement("input");
+		input.type = "time";
+		input.id = "idopont";
+		input.className = "form-control";
+
+		let button = document.createElement("button");
+		button.className = "btn btn-dark mt-2 mb-5";
+		button.innerHTML = "Beküldés";
+		button.click = f5Megold();
+
+		div.appendChild(label);
+		div.appendChild(input);
+		div.appendChild(button);
+
+		return div;
+
+
+	}
+
+	function f5Megold()
+	{
+		console.log("sziaaa");
+	}
+
+</script>
+
+</html>
