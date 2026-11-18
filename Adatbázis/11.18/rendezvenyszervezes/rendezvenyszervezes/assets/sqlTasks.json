@@ -1,0 +1,37 @@
+[
+  {
+    "id": 12,
+    "description": "Adatbázis létrehozása",
+    "adminPage": false
+  },
+  {
+    "id": 14,
+    "description": "Legalább 100 fős rendezvények száma",
+    "adminPage": true
+  },
+  {
+    "id": 15,
+    "description": "Szegeden tartott rendezvények",
+    "adminPage": true
+  },
+  {
+    "id": 16,
+    "description": "Nagy Bélához tartozó cégnév megadása",
+    "adminPage": false
+  },
+  {
+    "id": 17,
+    "description": "A 2 legnagyobb átlaglétszámú rendezvénytípus",
+    "adminPage": true
+  },
+  {
+    "id": 18,
+    "description": "Helyszínek, ahol nem tartottak rendezvényt",
+    "adminPage": true
+  },
+  {
+    "id": 19,
+    "description": "Tréningek szervezési díja",
+    "adminPage": true
+  }
+]
