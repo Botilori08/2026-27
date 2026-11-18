@@ -37,7 +37,20 @@
     </style>
 </head>
 <body>
+    <header class="row"><?php include("header.php");?></header>
     <div class="container-fluid">
+        <main class="row"><?php
+            $oldal = $_GET['oldal'] ?? 'rolunk';
+            switch ($oldal) {
+                case 'etlap':
+                    include('etlap.php');
+                    break;
+                case 'rolunk':
+                default:
+                    include("rolunk.php");
+                break;
+            }?>
+        </main>
         <h3 class="text-danger fw-bold">Munkatársi heti beosztás (szigorúan belső!)</h3>
         <p>Itt látják a kollégák a következő heti műszakokat és az elszámolási adatokat.</p>
         <ul>
@@ -45,5 +58,6 @@
             <li>Kedd: Farkas Balázs, Kiss Mária</li>
         </ul>
     </div>
+    <footer class="row"><?php include("footer.php");?></footer>
 
 </body>
