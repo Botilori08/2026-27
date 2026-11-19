@@ -42,7 +42,7 @@
         
         foreach($adatok as $adat)
         {
-
+            
         }
 
         $tabla .= "</table>";
