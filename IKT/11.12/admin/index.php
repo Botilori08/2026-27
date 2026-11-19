@@ -37,17 +37,24 @@
     </style>
 </head>
 <body>
-    <header class="row"><?php include("header.php");?></header>
+    <header><h2><i class="fa-solid fa-crown"></i> <i class="fa-solid fa-burger"></i> Burger
+        Király Tasty Grill</h2>
+    <nav class="mb-3 mt-2">
+    <a href="index.php?oldal=rolunk" class="btn btn-danger rounded-pill">Rólunk</a> |
+    <a href="index.php?oldal=etlap" class="btn btn-danger rounded-pill">Étlap és árak</a> |
+    <a href="index.php" class="btn btn-danger rounded-pill">Munkatársi beosztás (belső)</a>
+    </nav><header>
+<hr>
     <div class="container-fluid">
         <main class="row"><?php
             $oldal = $_GET['oldal'] ?? 'rolunk';
             switch ($oldal) {
                 case 'etlap':
-                    include('etlap.php');
+                    include('../etlap.php');
                     break;
                 case 'rolunk':
                 default:
-                    include("rolunk.php");
+                    include("../rolunk.php");
                 break;
             }?>
         </main>
@@ -58,6 +65,9 @@
             <li>Kedd: Farkas Balázs, Kiss Mária</li>
         </ul>
     </div>
-    <footer class="row"><?php include("footer.php");?></footer>
+    <hr>
+<footer>
+<p>Cím: 7500 Nagyatád, Fő utca 1. | Nyitva: H–V: 10:00–22:00</p>
+</footer>
 
 </body>
